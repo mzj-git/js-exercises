@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password">
+    <button onclick="o()">查看</button>
+    <button onclick="c()">关闭</button>
+    <script>
+        var x = document.getElementsByTagName("input")[0]
+
+        function o() {
+
+            x.type = "text"
+
+        };
+
+        function c() {
+
+            x.type = "password"
+        }
+    </script>
+</body>
+
+</html>

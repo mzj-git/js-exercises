@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>兔子个数问题</title>
+</head>
+
+<body>
+    <script>
+        var f1 = 1;
+        var f2 = 2;
+        var f3 = 3;
+        for (var i = 2; i < 60; i++) {
+            f3 = f1 + f2;
+            f1 = f2;
+            f2 = f3;
+        }
+        console.log(f3 + '对兔子');
+    </script>
+</body>
+
+</html>

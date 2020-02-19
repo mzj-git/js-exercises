@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水仙花</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 100; i <= 999; i++) {
+            //得到这个i的每一个位
+            var hundreds = parseInt(i / 100);
+            var decade = parseInt(i % 100 / 10);
+            var unit = i % 10;
+            //验证是否符合水仙花数的特点
+            if (Math.pow(hundreds, 3) + Math.pow(decade, 3) + Math.pow(unit, 3) == i) {
+                console.log(i);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>银行</title>
+    <link href="fonts/fontawesome-webfont.woff" rel="stylesheet">
+    <style>
+    *{margin: 0px;
+    padding: 0px;}
+    
+    
+    #nav{
+        background-color: lightgrey;
+        font-size: 14px;
+        line-height: 35px;
+        
+        
+    }
+    .fl{float: left;}
+    .fr{float: right;}
+    
+    
+    #nav .center {margin-left: 200px;
+    
+    margin-right: 200px;}
+
+    .center{width: 1000px;
+    margin: 0 auto;
+    height: 35px;
+    
+    
+    background-color: lightgray;}
+
+
+    .clear::after{clear: both;
+    content: '';
+    display: block;}
+    li{list-style: none;}
+    .nav-left li{
+        
+        padding: 0 15px;
+        position: relative;
+
+    }
+    #nav p{margin-left: 100px;}    
+    .nav-right li{margin-left: 10px;
+    }
+    .nav-right li:hover{cursor: pointer;
+    color: white;
+    }
+    .active{background:#c7000b ;
+    color: white;}
+    .nav-right span{float: left;
+    margin: 0 10px;
+    color: gray;}
+    .nav-left li img{position: absolute;
+    bottom: -6px;
+    
+    left: 35px;}
+    </style>
+        
+    
+</head>
+<body>
+    <!--id class 见名知意-->
+    <!--导航start-->
+    <div id="nav" class="clear">
+        <div class="center">
+            <ul class="fl nav-left">
+                <li class="fl active">个人用户
+                    <img src="http://v.icbc.com.cn/userfiles/Resources/ICBC/shouye/images/2017/head_iconS.png">
+                </li>
+                <li class="fl">企业用户</li>
+            </ul>
+            <p class="fl">本网站支持IPv6</p>
+            <ul class="fr nav-right">
+                <li class="fl">全球主站</li><span>|</span>
+                <li class="fl">分支机构</li><span>|</span>
+                <li class="fl">服务价目表</li><span>|</span>
+                <li class="fl">客户服务</li><span>|</span>
+                <li class="fl">人才招聘</li><span>|</span>
+                <li class="fl">繁体/EN</li>
+            </ul>
+        
+
+    </div>
+</div>
+    <!--导航end-->
+<!--搜索框start-->
+
+<div class="center">
+    <img  class="fl" src="http://v.icbc.com.cn/userfiles/Resources/ICBC/shouye/images/2017/logo.png">
+    <div class="">
+    <input type="text" placeholder="请输入关键字">
+    <button>
+        <i class="fa fa-search" aria-hidden="true"></i> 
+    </button>
+    </div>
+</div>
+
+    
+</body>
+</html>
+
+

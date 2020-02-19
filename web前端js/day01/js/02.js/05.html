@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回形数</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 10000; i < 100000; i++) {
+            var a = parseInt(i / 10000);
+            var b = parseInt(i / 1000 % 10);
+            var c = parseInt(i / 100 % 10);
+            var d = parseInt(i / 10 % 10);
+            var e = i % 10;
+
+            /* if (e * 1 + d * 10 + c * 100 + b * 1000 + a * 10000 == i)*/
+            if (a == e && b == d) {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

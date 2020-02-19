@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=im, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #banner {
+            width: 1230px;
+            height: 460px;
+            border: 10px solid red;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #banner img {
+            width: 100%;
+            display: none;
+        }
+
+        #banner .show {
+            display: inline-block;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #banner .menu {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: gray;
+            width: 234px;
+            height: 460px;
+        }
+
+        #banner .menu li {
+            height: 42px;
+            line-height: 42px;
+            padding: 0 20px;
+            color: white;
+            font-size: 15px;
+        }
+
+        #banner .menu li:hover {
+            background-color: orange;
+        }
+
+        #banner .menu li:first-of-type {
+            margin-top: 20px;
+        }
+
+        #banner .menu li i {
+            float: right;
+            line-height: 42px;
+            font-size: 20px;
+        }
+
+        #banner .menu li div {
+            background-color: white;
+            position: absolute;
+            left: 234px;
+            height: 460px;
+            width: 996px;
+            display: none;
+            top: 0px;
+            color: #000;
+
+
+        }
+
+        #banner .menu li:hover div {
+            display: block;
+        }
+
+        #banner .index {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        #banner .index li {
+            width: 6px;
+            height: 6px;
+            background-color: gray;
+            border: 2px solid gainsboro;
+            float: left;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+
+        .jiantou {
+            position: absolute;
+            top: 0px;
+            font-size: 50px;
+            color: silver;
+
+            width: 40px;
+            text-align: center;
+            top: 40%;
+        }
+
+        .jiantou:hover {
+            background-color: slategrey;
+        }
+
+        .left {
+            left: 234px;
+        }
+
+        .right {
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <img class="show"
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/87d23fcece4a80cb868e1d833786bb28.jpg?w=2452&h=920">
+        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/de7f93ef8e5d76b8e250d6a4f6f9caff.jpg?w=2452&h=920">
+        <ul class="index">
+            <li></li>
+            <li></li>
+        </ul>
+        <p class="jiantou left"><i class="fa fa-angle-left" aria-hidden="true"></i></p>
+        <p class="jiantou right"><i class="fa fa-angle-right" aria-hidden="true"></i></p>
+        <ul class="menu">
+            <li>手机 电话卡<i class="fa fa-angle-right" aria-hidden="true"></i>
+                <div>手机电话卡的div</div>
+            </li>
+            <li>电视 盒子<i class="fa fa-angle-right" aria-hidden="true"></i>
+                <div>电视盒子的div</div>
+            </li>
+            <li>笔记本 显示器 平板<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>家电 插线板<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>出行 穿戴<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>智能 路由器<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>电源 配件<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>健康 儿童<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>耳机 音响<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li>生活 箱包<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</body>
+
+</html>

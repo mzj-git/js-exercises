@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 如果script放置在 head内部
+        // 浏览器从上到下去执行代码
+        // 此时此刻    body里面的标签尚未渲染
+        // 所以 此时的js无法去操作 body里面没渲染的标签
+        // alert('我是head里面的js')
+    </script>
+</head>
+<body>
+    1. 属性内部
+    <!-- img: src alt  
+        id class -->
+    <!-- <div onclick="alert(123)">
+        我是div标签
+    </div> -->
+    <!-- 
+        目的： 点击div出现弹框
+        点击事件  click    给div
+
+        监听  如果  div 触发 了  点击事件   弹框
+
+     -->
+
+    2. 放在 script标签内部
+
+        注意： script标签的位置
+        一般来说  放置在body标签的内部的最后面
+
+    3. 独立文件  单独引入
+    <script src="js/01.js"></script>
+    
+
+    <div>
+        nihao
+    </div>
+    <script>
+        // alert('我是body后面的js')
+    </script>
+</body>
+</html>

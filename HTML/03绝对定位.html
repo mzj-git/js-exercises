@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .red{
+      width: 200px;
+      height: 200px;
+      background: rgba(255,0,0,0.5);
+      /* position: absolute;
+      top: 50px;
+      left: 50px;
+      right: 50px; */
+    }
+    .green{
+      width: 200px;
+      height: 200px;
+      background: rgba(0, 255, 0,0.5);
+      position: absolute;
+      top: 50px;
+      /* left: 50px; */
+      right: 50px;
+    }
+    #box{
+      width: 800px;
+      height: 500px;
+      border: 10px solid red;
+      margin: 0 auto;
+      position: relative;
+    }
+    .yellow{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="red"></div>
+  <div class="green"></div>
+
+  <div id="box">
+
+    <div class="yellow"></div>
+
+  </div>
+
+  <!-- 
+    position: absolute
+
+    区别: 1. 设置了绝对定位的元素,自身文档流位置丢失
+
+    2. 根据 距离自身最近的 有定位的 父元素 进行定位,
+    如果所有父元素都没有定位,相对于 浏览器 (body)进行定位
+
+
+    我   狼吞虎咽的 吃了 一顿特别美味的 大餐.
+
+   -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 运算符
+
+        // 一维运算符
+        //  + - * / %
+        //举例
+
+
+        // 数值型  字符串型   boolean  undefined  null object
+        // + 
+        // 数值 + 数值  简单的数字相加
+
+        // var sum = 1+1
+        // alert(1+1)
+        // var num1 = 1
+        // var num2 = 2
+        // var sum = num1+num2
+        // alert(num1+num2)
+
+
+        // alert(1 + '1')   // 11
+        //  字符串和任何的数据 相加  都是拼接
+        // alert('a' + undefined)
+
+
+
+        // 数值型+ boolean  会将boolean转换为 数值型   true为1   false为0
+        // alert(1 + false) 
+
+        // 数值型 + 无法相加的数据  NaN
+        // alert(1+undefined) // NaN  not a number    特殊数值
+
+
+
+        // -
+        // 数值与boolean相加减 都是将boolean转换为 数值
+        // alert(1-true)
+
+        // 数值型 - 无法相加的数据（undefined  null）   NaN
+
+        // 数值-数值   四则运算
+        // 数值-字符串  会将所有的字符串 转换为数值   再去计算
+
+        // alert('11' - true)
+
+
+        // 应用场景   需要将字符串转换为数值时    string-0
+
+
+        // %  余数
+        // alert(5%3)
+
+
+
+
+
+
+
+        // 定义变量，分别去表示商品的单价、名称和数量，弹出这么一句话， 我今天买了  xx   件  xx，一共花了 xxx 元
+
+        var singlePrice = 5
+        var num = 9
+        var name = '果冻'
+
+        alert('我今天买了' + num + '件' + name + '，一共花了' + singlePrice * num + '元')
+
+
+        // 定义一个自己拥有的价格
+        //  我妈今天给了我 xx 元， 我今天买了 xx 件  xx, 每件 xx   xx钱，一共花了 xx 元，还剩下  xx 元
+    </script>
+</body>
+
+</html>

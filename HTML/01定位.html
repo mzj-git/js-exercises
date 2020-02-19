@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>固定定位</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      height: 2000px;
+    }
+    div{
+      width: 100%;
+      height: 60px;
+      background: red;
+      position: fixed;
+      /* right: 20px;
+      bottom: 200px; */
+      left: 0;
+      top: 0;
+    }
+    p{
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div>1</div>
+
+  <p>
+
+  hello
+</p>
+  
+
+
+    <!-- 
+    浮动
+    float: left right
+    本质: 脱离文档流
+
+    影响:
+      父元素的所有的子元素都浮动了,并且,父元素没有显示的设置高度,那么,父元素高度为0
+      给父元素设置样式(背景颜色)不显示,  影响后续排版
+
+    清除浮动:
+      1. 给父元素设置高度
+      2. 给父元素的末尾添加一个 不浮动的空的块元素,并给块元素设置 clear:both
+        <ul>
+          <li class="fl"></li>
+          <li class="fl"></li>
+          <li class="fl"></li>
+          <p style="clear:both;"></p>
+        </ul>
+      3. 伪元素:
+        ::after  ::before
+
+        .clear::after{
+          content: "";
+          display: block;
+          clear:both;
+        }
+  -->
+
+  <!-- 定位 -->
+  <!-- 
+    position:
+      相对定位
+      绝对定位
+      固定定位
+   -->
+
+   <!-- 
+      固定定位:
+        position: fixed;
+
+      表现形式: 在一个相对较长的网页中,有滚动条,当鼠标下拉或者上滑时,部分界面内容不随着滚动,我们称为固定定位
+
+      当块元素设置固定定位后,失去了一些块元素的特性:
+        特性1: 占据整行,默认宽度 100%  
+        改变后: 宽度为自身内容的宽,但是仍然可以为其设置宽高
+
+
+      当我们给元素设置定位后,想改变元素的位置:
+      可以给其设置  top   bottom     left   right;
+      
+
+      固定定位: 相对于浏览器去改变
+
+
+
+    -->
+
+</body>
+</html>

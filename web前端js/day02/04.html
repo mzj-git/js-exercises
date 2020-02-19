@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            if () {
+
+            }else{
+
+            }
+
+            switch () {
+                case 1:
+                break;
+                default:
+                break;
+            }
+        
+        
+        */
+        // 重点
+        // 循环  春夏秋冬    跑10圈
+        // 1. 起始点
+        // 2. 结束点
+        // 3. 规律性的变化条件   0-10
+        // for (var i=0;i<=10;i++) {
+        //     alert(i)
+        // }
+
+        // 0-10
+        // for (var i=0;i<=100;i+=2){
+        //     // if (i%2 == 0) {
+        //         console.log(i)
+        //     // }
+        // }
+
+
+        //  0-100之间所有偶数的和
+        // var sum = 0;
+        // for(var i=0;i<=100;i+=2){
+        //     sum=sum+i
+        // }
+        // console.log(sum)
+
+        // 100-999之间所有的水仙花数     153
+        // 10000 - 99999 之间所有的 回形数      12321 
+        
+        // 一张纸的厚度为 0.07mm,珠穆朗玛峰的高度是 8848m,问这张纸折叠多少次才能超过珠峰的高度
+
+        // 假如所有的兔子 长生不老，每对幼兔一个月后长成小兔，小兔一个月后长成成兔，并且生下一对幼兔，
+        // 问5年后，有多少对兔子，幼兔、成兔、小兔各多少对
+
+        // for (var i=100;i<1000;i++) {
+        //     var bai = parseInt(i/100)
+        //     var shi = parseInt((i-bai*100)/10)
+        //     var ge = i-100*bai - 10*shi
+        //     if (bai*bai*bai + shi*shi*shi + ge*ge*ge == i) {
+        //         console.log(i)
+        //     }
+        // }
+
+        // 回形数   wan == ge && qian == shi
+        /*
+            if (wan == ge && qian == shi) {
+                console.log(i)
+            }
+        */
+
+
+
+
+        /* 一张纸的厚度为 0.07mm,珠穆朗玛峰的高度是 8848m,问这张纸折叠多少次才能超过珠峰的高度 */
+        // var count = 0
+        // var i = 0.00007
+        // for (i;i<=8848;i=i*2) {
+        //     count++
+        // }
+        // console.log(count)
+        
+
+        // 解法2
+        // var count = 0
+        // for (var h = 8848;h>0.00007;h/=2) {
+        //     count++
+        // }
+        // console.log(count)
+
+        // break;   switch里面的 break;   跳出循环   for循环里面 break 也是跳出循环
+
+        // var h = 0.00007
+        // for (var i=1;i>=0;i++) {
+        //     h*=2
+        //     if (h>8848){
+        //         console.log(i)
+        //         break;
+        //         // break后面的代码不解析
+        //     }
+
+        // }
+
+        // 一张纸的厚度  0.00007m   珠穆朗玛峰  8848m  问 这张纸对折多少次能超过珠穆朗玛峰的高度
+
+        
+        
+        // 0.00007*2*2*2
+
+        // var h = 0.00007
+        // for (var i=1;i>=0;i++) {
+        //     h=h*2
+        //     if (h>8848){
+        //         // 循环结束  i循环次数
+        //         console.log(i)
+        //         break
+        //     }
+        // }
+
+
+        // 假设 所有的兔子  长生不老     一对幼兔，幼兔在一个月后长成小兔，小兔子在一个月后长成  成兔， 
+        // 并且生下一对幼兔， 以后每个月还会再生一对幼兔,问 5年以后多少对兔子
+
+
+        /*
+                        幼兔    小兔    成兔
+            初始值：     1        0      0
+            1月：       0         1      0
+            2月：       1         0      1
+            3月：       1         1      1
+            4月：       2         1      2
+
+            当月的小兔  === 上月的幼兔
+            当月的成兔  ===   上月的成兔  +   上月的小兔
+            当月的幼兔  ===   上月的成兔  + 上月的小兔
+        
+        */
+
+        // var syt=1,sxt=0,sct=0,dyt=0,dxt=0,dct=0
+
+
+        // for (i=0;i<60;i++){
+        //     dxt = syt
+        //     dct = sct + sxt
+        //     dyt = sct + sxt
+
+        //     // 此时第一个月没问题，   到了第二个月的时候    所谓的  syt 变为  一月份的幼兔
+
+        //     syt = dyt
+        //     sxt = dxt
+        //     sct = dct
+
+
+        // }
+        // console.log('一共'+ (dct+dxt+dyt) +"对兔子")
+        
+
+        var baby=1,child=0,adult=0,i,sum;
+        for(i=0;i<4;i++){
+                adult=child+adult;
+                child=baby;
+                baby=adult; 
+                sum=adult+child+baby; 
+        }
+        console.log("成兔的数量是"+adult+"只，小兔的数量是"+child+"只，幼兔的数量是"+baby+"只，共有"+sum+"只。");
+
+
+
+
+    </script>
+</body>
+</html>

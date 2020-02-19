@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.定义两个数组，把两个数组共同的元素放到一个新的数组里面
+        /*var arr = [1, 2, 3, 4, 5]
+        var arr1 = [4, 1, 2]
+        var arr2 = []
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr1.length; j++) {
+                if (arr[i] == arr1[j]) {
+                    arr2.push(arr[i])
+                }
+            }
+        }
+        console.log(arr2)*/
+
+        //2.定义一个数组， 随机产生  数值，作为下标，将其移至数组的开头
+        /*var arr = [1, 4, 6, 3, 87, 12]
+        var x = Math.floor((Math.random() * arr.length - 1));
+
+        arr.unshift(arr[x])
+        console.log(arr)*/
+
+        //3.假设 有一个 从大到小的   数组， 如 [90.79,60,50,20],随机产生一个数值，按照大小规律插入数组中
+        /*var arr = [90, 79, 60, 50, 20]
+        var x = parseInt(Math.round((Math.random() * 100)))
+        var i = 0
+        var length = arr.length
+        for (; i < length; i++) {
+            if (x > arr[i]) {
+                if (i == 0) {
+                    arr.unshift(x)
+                } else {
+                    arr.splice(i, 0, x)
+                }
+                break;
+            }
+        }
+        if (i == length) {
+            arr.push(x)
+        }
+        console.log(arr)*/
+
+        //4. 定义一个数组  如  var  arr = [1,0,2,0,3,0,4,0,5,0,6,0],要求将数组中的0项去除
+
+        /*var arr = [1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0]
+        for (var i = 0; i < arr.length; i++) {
+            var x = arr[i]
+            var arr1 = arr.filter(function(x) {
+                return x != 0
+            })
+        }
+        console.log(arr1)*/
+
+        //5.随机选取 10个  10-99之间的数值，存入到数组中，从大到小排序
+        /*var arr = []
+
+        function getRandom(num1, num2) {
+            var transition = num2 - num1;
+            var res = Math.floor(Math.random() * transition + num1);
+            return res;
+        }
+
+        for (var i = 0; i < 10; i++) {
+            arr.push(getRandom(10, 100));
+        }
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - 1; j++) {
+                var x
+                if (arr[j] < arr[j + 1]) {
+                    x = arr[j + 1]
+                    arr[j + 1] = arr[j]
+                    arr[j] = x
+
+
+                }
+            }
+        }
+        console.log(arr)*/
+
+        //6. 定义一个数组， 然后定义一个  数据， 判断数组是否含有这个数据，如果包含，返回其下标
+        /*var arr = [1, 2, 4, 6, 3, 2, 12, 13, 11]
+        var x = 14
+        for (var i = 0; i < arr.length; i++) {
+            if (x == arr[i]) {
+                console.log('含有此数据，下标为')
+                console.log(i)
+            } else {
+                
+            }
+        }*/
+
+        //7，  定义一个数组，var arr = [1,2,3,2,1],  定义一个数据， 如  var num = 2;移出数组中  与 数据相等的数据     如arr的最终结果为    [1,2,3,1]
+        /*var arr = [1, 2, 3, 2, 1]
+        var x = 2
+        for (var i = 0; i < arr.length; i++) {
+            if (x == arr[i]) {
+                arr.splice(i, 1)
+            }
+        }
+        console.log(arr)*/
+
+        //8. 给数组中的每个元素 求 二次方，不直接修改数组，返回一个新数组
+        /*var arr = [1, 4, 6, 3, 5]
+        var arr1 = []
+        for (var i = 0; i < arr.length; i++) {
+            arr1[i] = arr[i] * arr[i]
+        }
+        console.log(arr1)*/
+
+
+        // 产生 10  个 10-99 随机数，放置到数组中，去重，并补充至10位
+        /*var arr = []
+        var obj = {}
+
+        function createArrDate(count) {
+            for (var i = 0; i < count; i++) {
+                var num = Math.round(Math.random() * 89 + 10) // 产生 10个随机数的地方
+                arr.push(num)
+                obj[num] = 1
+
+            }
+
+        }
+        createArrDate(10) //  数组创建完成   有可能有重复值    需要判断是否需要去重   定义对象  将随机数作为对象的属性
+
+
+        function quchong() {
+            var l = 0 // l 对象属性的多少
+            for (var key in obj) {
+                l++
+            } // 到这里位置     l为对象的长度
+            if (l !== arr.length) { // 如果  对象的长度  不等于 数组的长度   代表数组有重复值  清空数组 重新赋值数组(将对象的属性给了数组的数据)
+                arr = []
+                for (var key in obj) {
+                    arr.push(key - 0)
+                } // 到此为止， 数组去重完毕  长度一定不为10   代表需要增加数据   增加  10-arr.length 个数据
+                createArrDate(10 - arr.length)
+                quchong()
+            }
+        }
+        quchong()
+        console.log(arr)
+        var arr = []
+        var obj = {}
+
+        function getRandom(n) {
+            for (var i = 0; i < n; i++) {
+                num = Math.round(Math.random() * 89 + 10)
+                arr.push(num)
+                obj[num] = 1
+
+            }
+        }
+        getRandom(10)
+
+        function quchong() {
+
+
+
+            var length = 0
+            for (var key in obj) {
+                length++
+            }
+
+            if (length != arr.length) {
+                for (var key in obj) {
+                    arr = []
+                    arr.push(key - 0)
+                }
+
+
+                getRandom(10- arr.length)
+                quchong()
+            }
+        }
+
+        quchong()
+        console.log(arr)*/
+
+        /* var arr = []; //定义外面的数组
+        for (var i = 1; i <= 100; i++) { //循环遍历
+            if (i % 10 == 1) { //每当余数为0时，就重新建立数组，
+                var arr1 = [];
+                arr.push(arr1); //将数组存到外面的数组中
+            }
+            arr1.push(i); //将元素存到里面的数组中
+
+        }
+        console.log(arr);//定义外面的数组
+        var arr = []
+        for (i = 0; i < 10; i++) {
+            var arr1 = []
+            for (j = 0; j < 10; j++) {
+                arr1.push(i * 10 + j + 1)
+            }
+            arr.push(arr1)
+        }
+        console.log(arr)
+// 0;[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//1: (10) [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+//2: (10) [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+//3: (10) [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+//4: (10) [41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+//5: (10) [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+//6: (10) [61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+//7: (10) [71, 72, 73, 74, 75, 76, 77, 78, 79, 80]
+//8: (10) [81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+//9: (10) [91, 92, 93, 94, 95, 96, 97, 98, 99, 100]//  */
+
+
+
+        var arr = [1, 2, 3]
+        delete arr[1]
+        console.log(arr)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- DOM 文档对象模型   document object model
+    js去操作文档（HTML）的一个接口
+
+    文档  结构部分   标签套标签   生成一个DOM节点树
+    节点：标签节点    文本节点   属性节点    根节点
+
+
+    js 去 操作   dom节点树     从而达到修改，新增，删除的一些效果
+    
+
+    修改节点的内容   获取节点的内容    新增节点    删除节点 -->
+
+
+    <!-- <div>
+        <p>我是p标签</p>
+    </div> -->
+
+    <div>我是div标签0</div>
+
+    <div id="oDiv">我是div标签1</div>
+    <div>我是div标签2</div>
+    <div class="one">我是div标签3</div>
+    <div>我是div标签4</div>
+
+
+    <input type="text">
+    <button onclick="getIptValue()">点击获取input的值</button>
+    <button onclick="changeIptValue()">点击修改input的值为300</button>
+
+    <script>
+        // 获取节点
+        // 三个方法 
+        
+        // 标签名称获取
+        // var x = document.getElementsByTagName('p')
+        // console.log(x) // HTMLCollection(1)   类数组      [p]
+        // console.log(x[0])
+        // 通过标签名称获取到的  是一个数组，数组里面可能是一个数据，也可能是多个数据, 可以通过下标拿到 想要的元素
+        // var arr= [1]   不能理解为 arr == 1  ，   而是 arr[0] == 1
+
+        // var divs = document.getElementsByTagName('div')
+        // console.log(divs[2])
+
+
+
+        // class获取  和  通过标签名称获取一样    获取到的都是  类数组，想要具体的元素，加上下标
+        // var one = document.getElementsByClassName('one')
+        // console.log(one)
+        // console.log(one[0])
+
+
+
+        // id获取  唯一   
+        // var divs = document.getElementsByTagName('div')
+        // var oDiv = document.getElementById('oDiv')
+        // console.log(oDiv)
+        // console.log(divs)
+        // console.log(divs[0])  // 加下标
+
+
+        // 标签的内容    标签的属性
+
+        // 标签的内容    双标签  是有自己的内容的  <span></span>  <p></p>  <div></div>  <a></a>
+        // var oDiv = document.getElementById('oDiv')
+        // console.log(oDiv.innerHTML)  // 我是div标签1
+        // console.log(oDiv.innerText) // 我是div标签1
+        
+
+        // 既然两个都能获取到标签的内容   区别在哪里
+        // oDiv.innerHTML = '<h1>修改后的h1标签</h1>'   // 通过 赋值号   就可以直接修改内容
+        // oDiv.innerText = '<h1>innerText修改后的h1标签</h1>'    //  innerText不解析标签
+
+        // <input>    input的值      value
+
+
+        // 标签属性    src   type  input的value属性就是  input 的值
+
+        // var ipts  = document.getElementsByTagName('input')   // 类数组 
+        // console.log(ipts[0].value)
+
+        // 当我们获取到标签后   如何获取标签的属性？
+        // var a = 获取的元素(通过  tagName    className    id)
+        // a.属性名称   （src    type   value   checked）
+
+
+        // function getIptValue() {
+        //     var ipt = document.getElementsByTagName('input')[0]
+        //     console.log(ipt.value)
+        // }
+
+
+        // function changeIptValue(){
+        //     var ipt = document.getElementsByTagName('input')[0]
+        //     ipt.value = 300
+        // }
+
+
+        //  获取节点：   tagName()   className()    类数组
+        //              id()     元素
+
+
+        //  获取内容    .innerHTML   .innerText
+        //  获取属性    节点.属性 
+
+        // 想要修改   = 赋值 
+
+
+        // 密码框查看
+        /*
+            input   password   旁边放两个按钮  一个是查看    一个是关闭 
+
+            点击查看的时候，   修改input的 type值   修改为   text
+
+            点击 关闭的时候，  修改 input的  type值  为  password
+
+
+            进阶版：
+
+            input 上面放了一张闭着眼睛的图片   （还有一张是睁开眼睛的）
+
+            点击图片    修改input的 type值   修改为   text     修改图片的src
+            再次点击图片     修改input的 type值   修改为  password     修改图片的src
+            
+
+
+        
+        */
+
+        /* 
+        
+            换肤效果， 上面五张图片  ，下面一张图片， 点击上面的5张图片任意一个，下面的图片就变为上面点击的图片 
+        
+        
+        
+        */
+
+
+        
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../CSS3笔记/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #banner {
+            width: 1200px;
+            margin: 0 auto;
+            border: 10px solid red;
+            position: relative;
+        }
+
+        #banner img {
+            display: none;
+            width: 100%;
+        }
+
+        #banner .show {
+            display: block;
+        }
+
+        p {
+            position: absolute;
+            width: 25px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0 100px 100px 0;
+        }
+
+        .left {
+            top: 50%;
+        }
+
+        i {
+            color: seashell;
+
+        }
+
+        .right {
+            top: 50%;
+            right: 0px;
+            border-radius: 100px 0 0 100px;
+        }
+
+        .i1 {
+            position: relative;
+            left: 8px;
+            font-size: 25px;
+            top: 3px;
+        }
+
+        .i2 {
+            position: relative;
+            left: 8px;
+            font-size: 25px;
+            top: 3px;
+        }
+
+        ul {
+            background: rgba(0, 0, 0, 0.3);
+            width: 50px;
+            height: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 570px;
+            border-radius: 100px;
+        }
+
+        #banner li {
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            float: left;
+            border-radius: 50px;
+            margin-left: 10px;
+
+        }
+
+        li:first-of-type {
+            margin-left: 0px !important;
+        }
+
+        .float {
+            display: block;
+            clear: both;
+            content: '';
+        }
+
+        li:hover {
+            background-color: violet !important;
+        }
+
+        li:active {
+            background-color: yellow !important;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <img class="show" src="https://img.alicdn.com/tfs/TB1FQZ9uQL0gK0jSZFtXXXQCXXa-520-280.jpg_q90_.webp" alt="">
+        <img src="https://img.alicdn.com/simba/img/TB1bVF0tYj1gK0jSZFuSuwrHpXa.jpg" alt="">
+        <img src="https://img.alicdn.com/simba/img/TB1Fvi.tXT7gK0jSZFpSuuTkpXa.jpg" alt="">
+        <p class="left">
+            <i class="fa fa-angle-left i1"></i>
+        </p>
+        <p class="right">
+            <i class="fa fa-angle-right i2"></i>
+        </p>
+        <ul class="float">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
