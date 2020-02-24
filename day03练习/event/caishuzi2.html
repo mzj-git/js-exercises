@@ -22,32 +22,39 @@
         var num = Math.random() * 100
 
         num = Math.ceil(num)
-        alert(num)
-
+        console.log(num)
         document.getElementById('ok1').onclick = function() {
-            var value1 = document.getElementById('kuang1')
+            var m = document.getElementById('kuang1').value
 
-            var value2 = document.getElementById('kuang2')
+            var n = document.getElementById('kuang2').value
 
-        }
+            document.getElementById('ok2').onclick = function() {
+                function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min; //不含最大值，含最小值
+                }
+
+                var num1 = getRandomInt(m, n)
+                console.log(num1)
+                document.getElementById('kuang3').value = num1
+
+                if (num1 > num) {
 
 
-        document.getElementById('ok2').onclick = function() {
-            var value = document.getElementById('kuang3').value
-            var count = 0
-            if (value > num) {
-                count++
-                alert('猜大了')
-            } else if (value < num) {
-                count++
-                alert('猜小了')
+                    alert('猜大了')
 
-            } else {
-                alert('猜对了')
+                } else if (num1 < num) {
+
+                    alert('猜小了')
+
+                } else {
+
+                    alert('猜对了')
+
+                }
 
             }
-            alert(count)
-
         }
     </script>
 </body>

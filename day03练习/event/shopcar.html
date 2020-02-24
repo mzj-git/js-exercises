@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淘宝购物车</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .block {
+            width: 1000px;
+            height: auto;
+            margin: auto;
+        }
+        
+        .top {
+            display: flex;
+            flex-direction: row;
+            /*在父元素上布局!!!*/
+            background-color: red;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .list {
+            flex: 1;
+        }
+        
+        .lists {
+            flex: 2;
+        }
+        
+        input[type=checkbox] {
+            outline: none;
+        }
+        
+        .middle {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .b-par {
+            height: 70px;
+            line-height: 70px;
+            display: flex;
+            flex-direction: row;
+            padding: 15px 0;
+            border-bottom: dashed 1px darkgray;
+            text-align: center;
+        }
+        
+        .b-par>div:nth-child(2),
+        .b-par>div:nth-child(5) {
+            flex: 2;
+        }
+        
+        .b-par>div {
+            flex: 1;
+        }
+        
+        .b-par>div:nth-child(3)>img {
+            width: 70px;
+        }
+        
+        .parsum {
+            position: relative;
+        }
+        
+        .b-par>div:nth-child(5)>input[type=button] {
+            width: 25px;
+            height: 25px;
+            border-style: none;
+            background: orange;
+            outline: none;
+            color: blue;
+            font-size: 17px;
+            position: absolute;
+        }
+        
+        .b-par>div:nth-child(5)>input:nth-child(1) {
+            top: 22.5px;
+            right: 123.6125px;
+        }
+        
+        .b-par>div:nth-child(5)>input:nth-child(3) {
+            top: 22.5px;
+            right: 73.6125px;
+        }
+        
+        .b-par>div:nth-child(5)>input[type=text] {
+            width: 25px;
+            height: 25px;
+            border-style: none;
+            outline: none;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        
+        .b-par>div:last-child>input[type=button] {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+        }
+        
+        .book {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #fff;
+            border-bottom: solid 1px darkgray;
+        }
+        
+        .book>div {
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+        }
+        
+        .sale {
+            background-color: red;
+            color: white;
+        }
+        
+        .bgcolor {
+            background: rgb(197, 195, 195, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 整体布局 -->
+    <div class="block">
+        <!-- 上部 -->
+        <div class="top">
+            <div class="list"><input type="checkbox" name="" id="ckall">全选</div>
+            <div class="lists">商品名称</div>
+            <div class="list">图片</div>
+            <div class="list">单价</div>
+            <div class="lists">数量</div>
+            <div class="list">小计</div>
+            <div class="list">操作</div>
+        </div>
+        <!-- 商品陈列区 -->
+        <div class="middle"></div>
+        <!-- 结算区 -->
+        <div class="book">
+            <div class="fselect"><input type="checkbox" name="" id="ckfan">反选</div>
+            <div>总计：<span id="money"></span>$</div>
+            <div class="sale">结算</div>
+        </div>
+    </div>
+
+    <script>
+        var cart = [{
+            "id": "101321XNMNSDJYE6871DAS21",
+            "name": "华为P30",
+            "src": "images/huaweip30.jpg",
+            "price": "1499",
+            "total": "1499",
+            "num": 1
+        }, {
+            "id": "101321XNMNSDJYE6871DAS21",
+            "name": "华为P30",
+            "src": "images/huaweip30.jpg",
+            "price": "1499",
+            "total": "1499",
+            "num": 1
+        }, {
+            "id": "101321XNMNSDJYE6871DAS21",
+            "name": "华为P30",
+            "src": "images/huaweip30.jpg",
+            "price": "1499",
+            "total": "1499",
+            "num": 1
+        }, {
+            "id": "101321XNMNSDJYE6871DAS21",
+            "name": "华为P30",
+            "src": "images/huaweip30.jpg",
+            "price": "1499",
+            "total": "1499",
+            "num": 1
+        }]
+        var middle = document.getElementsByClassName("middle")[0];
+        for (var index in cart) {
+            // 行
+            var par = document.createElement("div");
+            par.className = "b-par";
+            middle.appendChild(par);
+            // 列
+            //多选框
+            var parchild = document.createElement("div");
+            var ckbox = document.createElement("input");
+            ckbox.type = "checkbox";
+            ckbox.className = "cklist";
+            parchild.appendChild(ckbox);
+            par.appendChild(parchild);
+            //名称
+            var parchildname = document.createElement("div");
+            parchildname.innerHTML = cart[index].name;
+            par.appendChild(parchildname);
+            //图片
+            var parimg = document.createElement("div");
+            var img = document.createElement("img");
+            img.src = cart[index].src;
+            parimg.appendChild(img);
+            par.appendChild(parimg);
+            //价格
+            var parprice = document.createElement("div");
+            parprice.innerHTML = cart[index].price + "$";
+            parprice.className = "price";
+            parprice.setAttribute("data-price", cart[index].total);
+            par.appendChild(parprice);
+            //数量
+            var parsum = document.createElement("div");
+            parsum.className = "parsum";
+            var parbtnl = document.createElement("input");
+            parbtnl.type = "button";
+            parbtnl.value = "-";
+            parbtnl.className = "parbtnl";
+
+            var parsale = document.createElement("input");
+            parsale.type = "text";
+            parsale.className = "parsale";
+            parsale.value = cart[index].num;
+
+            var parbtnr = document.createElement("input");
+            parbtnr.type = "button";
+            parbtnr.value = "+";
+            parbtnr.className = "parbtnr";
+
+            parsum.appendChild(parbtnl);
+            parsum.appendChild(parsale);
+            parsum.appendChild(parbtnr);
+            par.appendChild(parsum);
+            //小计
+            var partotal = document.createElement("div");
+            partotal.innerHTML = cart[index].total + "$";
+            partotal.className = "partotal";
+            par.appendChild(partotal);
+            //操作
+            var action = document.createElement("div");
+            var btndelete = document.createElement("input");
+            btndelete.type = "button";
+            btndelete.className = "delete";
+            btndelete.value = "删除";
+            action.appendChild(btndelete);
+            par.appendChild(action);
+        }
+        window.onload = function() {
+                //反选、全选
+                var ckall = document.getElementById("ckall");
+                var ckfan = document.getElementById("ckfan");
+                var cklist = document.getElementsByClassName("cklist");
+                var parbtnl = document.getElementsByClassName("parbtnl");
+                var parbtnr = document.getElementsByClassName("parbtnr");
+                var bpar = document.getElementsByClassName("b-par");
+                var parsale = document.getElementsByClassName("parsale");
+                var partotal = document.getElementsByClassName("partotal");
+                var price = document.getElementsByClassName("price");
+                var money = document.getElementById("money");
+                var btndelete = document.getElementsByClassName("delete");
+
+                //全选
+                ckall.onclick = function() {
+                        if (this.checked) {
+                            if (ckfan.checked == true) {
+                                ckfan.checked = !ckfan.checked;
+                            }
+                            for (var i = 0; i < cklist.length; i++) {
+                                cklist[i].checked = true;
+                                bpar[i].className = "b-par bgcolor";
+                            }
+                        } else {
+                            for (var i = 0; i < cklist.length; i++) {
+                                cklist[i].checked = false;
+                                bpar[i].className = "b-par";
+                            }
+                        }
+                        totalprice(partotal, cklist, money);
+                    }
+                    //反选
+                ckfan.onclick = function() {
+                        if (ckall.checked == true) {
+                            ckall.checked = !ckall.checked;
+                        }
+                        for (var i = 0; i < cklist.length; i++) {
+                            cklist[i].checked = !cklist[i].checked;
+                            if (cklist[i].checked) {
+                                bpar[i].className = "b-par bgcolor";
+                            } else {
+                                bpar[i].className = "b-par";
+                            }
+                        }
+                        totalprice(partotal, cklist, money);
+                    }
+                    //单选
+                for (var i = 0; i < cklist.length; i++) {
+                    cklist[i].index = i; //shen  me  yi si
+                    cklist[i].onclick = function() {
+                            //单选按钮和多选按钮已经选中的话，对列表的商品选择一旦有改变，对号就消失
+                            if (ckfan.checked == true || ckall.checked == true) {
+                                ckfan.checked = false;
+                                ckall.checked = false;
+                            }
+                            if (this.checked) { //当前对象选中
+                                bpar[this.index].className = "b-par bgcolor";
+                            } else {
+                                bpar[this.index].className = "b-par"; //对象的索引
+                            }
+                            totalprice(partotal, cklist, money);
+                        }
+                        //删除事件
+                    btndelete[i].index = i;
+                    btndelete[i].onclick = function() {
+                        bpar[this.index].remove();
+                        totalprice(partotal, cklist, money);
+                        for (var k = 0; k < btndelete.length; k++) {
+                            btndelete[k].index = k;
+                            cklist[k].index = k;
+                            parbtnl[k].index = k;
+                            parbtnr[k].index = k;
+                            parsale[k].index = k;
+                        }
+                    }
+                }
+                //数量
+                for (var i = 0; i < parbtnl.length; i++) {
+                    parbtnl[i].index = i;
+                    parbtnl[i].onclick = function() {
+                        var val = parsale[this.index].value;
+                        val--;
+                        if (val < 1) {
+                            val = 1;
+                        }
+                        parsale[this.index].value = val;
+                        //xiaoji
+                        partotal[this.index].innerHTML = smallTotale(price, this.index, val) + "$";
+                        totalprice(partotal, cklist, money);
+                    }
+                    parbtnr[i].index = i;
+                    parbtnr[i].onclick = function() {
+                            var val = parsale[this.index].value;
+                            val++;
+                            parsale[this.index].value = val;
+                            //xiaoji
+                            partotal[this.index].innerHTML = smallTotale(price, this.index, val) + "$";
+                            totalprice(partotal, cklist, money);
+                        }
+                        //键盘输入的时候
+                    parsale[i].onkeydown = function(e) {
+                        if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode === 8 && this.value != "1") {
+                            if (this.value == "1") {
+                                alert("该宝贝不能删。");
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                    parsale[i].index = i;
+                    parsale[i].onkeyup = function() {
+                        if (this.value == "") {
+                            this.value = 0;
+                        }
+                        partotal[this.index].innerHTML = smallTotale(price, this.index, this.value) + "$";
+                        totalprice(partotal, cklist, money);
+                    }
+                }
+            }
+            // /小计
+        function smallTotale(obj, index, num) {
+            return obj[index].getAttribute("data-price") * num;
+        }
+        //总价
+        function totalprice(obj, box, money) {
+            var allpricejg = 0;
+            for (var i = 0; i < obj.length; i++) {
+                if (box[i].checked) {
+                    allpricejg += parseFloat(obj[i].innerHTML);
+                }
+            }
+            money.innerHTML = allpricejg;
+        }
+    </script>
+</body>
+
+</html>
