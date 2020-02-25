@@ -3,34 +3,124 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>换肤</title>
-    <style>
-        div {
-            width: 900px;
-            height: 500px;
-            border: 1px solid red;
+    <title>Document</title>
+    <style type="text/css">
+        table {
+            width: 100%;
+            border: 1px solid gray;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+        
+        a {
+            text-decoration: none;
+            color: red;
         }
     </style>
 </head>
 
 <body>
-    <img width='300' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582109087124&di=a5bab7fc34becc9a399148dcaf0332dd&imgtype=0&src=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F40200000%2FInuyasha-Art-211-willi28-40237803-2500-1753.jpg"
-        alt="">
-    <img width='300' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582109087124&di=9d38c6ee689eecf2771729dbd1d31385&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201801%2F07%2F20180107005246_LQhBF.thumb.700_0.jpeg"
-        alt="">
-    <img width="300" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582109087120&di=96de6fd229b259ec0def1ee70d301bf6&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F15%2F20160715232102_HmFNu.jpeg" alt="">
-    <img width='300' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582109087119&di=948200c325715d8959aeb3c6a5e31f1f&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F91529822720e0cf3c40c501e0846f21fbf09aa5f.jpg"
-        alt="">
-    <div></div>
+    姓名：<input type="text" id="pt1"> 年龄：
+    <input type="text" id="pt2"> 职位：
+    <input type="text" name="" id="pt3"> 电话：
+    <input type="text" id="pt4">薪资：<input type="text" id="pt5"> 地址：
+    <input type="text" id="pt6">
+    <button id="btn_add">添加</button>
+    <button id="btn_del">删除</button>
     <script>
-        var imgs = document.getElementsByTagName('img')
-        var div = document.getElementsByTagName('div')[0]
-        for (var i = 0; i < imgs.length; i++) {
-            imgs[i].onclick = function() {
-                div.style.cssText = 'background: url(' + this.src + ');'
+        //得到输入框id
+        var ipt1 = document.getElementById('pt1');
+        var ipt2 = document.getElementById('pt2');
+        var ipt3 = document.getElementById('pt3');
+        var ipt4 = document.getElementById('pt4');
+        var ipt5 = document.getElementById('pt5');
+        var ipt6 = document.getElementById('pt6');
+        var bt1 = document.getElementById('btn_add');
+        var bt2 = document.getElementById('btn_del')
+            //创建表格
+        var tab = document.createElement('table');
+        //创建表头行
+        var tr = document.createElement('tr');
+        //将行插入表格
+        tab.appendChild(tr);
+        //创建表头列
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        var th5 = document.createElement('th');
+        var th6 = document.createElement('th');
+        //输入表头内容
+        th1.innerHTML = "姓名";
+        th2.innerHTML = "年龄";
+        th3.innerHTML = "职位";
+        th4.innerHTML = "电话";
+        th5.innerHTML = "薪资";
+        th6.innerHTML = "住址";
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+
+        tr.appendChild(th4);
+        tr.appendChild(th5);
+        tr.appendChild(th6);
+        //点击事件
+        bt1.onclick = function(argument) {
+            if (ipt1.value == '') {
+                alert('不能为空！');
+                return;
             }
+
+            gettd(ipt1.value, ipt2.value, ipt3.value, ipt4.value, ipt5.value, ipt6.value);
+            document.body.appendChild(tab);
+            //输出内容后清空输入框
+            ipt1.value = '';
+            ipt2.value = '';
+            ipt3.value = '';
+
+            ipt4.value = '';
+            ipt5.value = '';
+            ipt6.value = '';
+        }
+        bt2.onclick = function() {
+                function del(e)
+                var e = e || window.event
+                console.leg(e.target)
+            }
+            //创建列
+        function gettd(name, age, position, call, sarary, addr) {
+            //创建行
+            var tr1 = document.createElement('tr');
+            //创建列
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            var td6 = document.createElement('td');
+            //在表格中输入内容，用参数代替
+            td1.innerHTML = name;
+            td2.innerHTML = age;
+            td3.innerHTML = position;
+            td4.innerHTML = call;
+            td5.innerHTML = sarary;
+            td6.innerHTML = addr;
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
+            tr1.appendChild(td3);
+            tr1.appendChild(td4);
+            tr1.appendChild(td5);
+            tr1.appendChild(td6);
+            tab.appendChild(tr1);
+            //返回结果
+            return tr1;
         }
     </script>
 </body>
