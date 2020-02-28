@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易计算机</title>
+    <style>
+        div {
+            width: 220px;
+            background-color: coral;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        div input {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="kuang1">
+        <button id="fuhao">+</button>
+        <input type="text" id="kuang2">
+        <button id="compute">=</button>
+        <input type="text" id="result">
+        <hr>
+        <button class="num">1</button>
+        <button class="num">2</button >
+        <button class="num">3</button>
+        <button class="num">4</button></br>
+        <button class="num">5</button>
+        <button class="num">6</button>
+        <button class="num">7</button>
+        <button class="num">8</button></br>
+        <button class="num">9</button>
+        <button class="num">0</button>
+
+        <button class="sign">+</button>
+        <button class="sign">-</button></br>
+        <button clsss="sign">*</button>
+        <button class="sign">/</button>
+        <button class="sign">%</button>
+        <button id="AC">AC</button></br>
+    </div>
+    <script>
+        var signs = document.getElementsByClassName('sign')
+        for (var i = 0; i < signs.length; i++) {
+            signs[i].onclick = function() {
+                document.getElementById('fuhao').innerHTML = this.innerHTML
+            }
+        }
+        var nums = document.getElementsByClassName('num')
+        var kuang1 = document.getElementById('kuang1')
+        var kuang2 = document.getElementById('kuang2')
+        var kaiguan = true
+        for (var i = 0; i < nums.length; i++) {
+            nums[i].onclick = function() {
+                if (kaiguan) {
+                    kuang1.value += this.innerHTML
+                } else {
+                    kuang2.value += this.innerHTML
+                }
+            }
+        }
+        kuang2.onclick = function() {
+            kaiguan = false
+        }
+        kuang1.onclick = function() {
+            kaiguan = true
+        }
+        var compute = document.getElementById('compute')
+        var result = document.getElementById('result')
+        compute.onclick = function() {
+            var fuhao = document.getElementById('fuhao').innerHTML
+            switch (fuhao) {
+                case '+':
+                    result.value = (kuang1.value - 0) + (kuang2.value - 0)
+                    break;
+                case '-':
+                    result.value = (kuang1.value - 0) - (kuang2.value - 0)
+                    break;
+                case '*':
+                    result.value = (kuang1.value - 0) * (kuang2.value - 0)
+                    break;
+                case '/':
+                    result.value = (kuang1.value - 0) / (kuang2.value - 0)
+                    break;
+                case '%':
+                    result.value = (kuang1.value - 0) % (kuang2.value - 0)
+                    break;
+            }
+        }
+        var ac = document.getElementById('AC')
+        ac.onclick = function() {
+            kuang1.value = ''
+            kuang2.value = ''
+            result.value = ''
+            fuhao.innerHTML = '+'
+            kaiguan = true
+        }
+    </script>
+</body>
+
+</html>

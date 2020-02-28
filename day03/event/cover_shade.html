@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遮罩</title>
+    <style>
+        #shade {
+            display: none;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+        
+        #shadeBox {
+            display: none;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -150px;
+        }
+        
+        #shadeBox button {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="show">点击触发遮罩</button>
+    <div id="shade">
+        <div id="shadeBox">
+            <button class="close">关闭</button>
+        </div>
+    </div>
+    <script>
+        var show = document.getElementsByClassName('show')[0]
+        var close = document.getElementsByClassName('close')[0]
+        var shade = document.getElementById('shade')
+        show.onclick = function() {
+            shade.style.display = 'black'
+        }
+        close.onclick = function() {
+            shade.style.display = 'none'
+        }
+        shade.onclick = function(e) {
+            var e = e || window.event
+            if (e.target == shade) {
+                shade.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+
+</html>

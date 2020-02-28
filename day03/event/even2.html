@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="fn(123,45,6)">
+
+    </div>
+    <script>
+        function fn(num1, num2, num3, e) {
+            // 浏览器是有兼容性    全局对象
+            // 做兼容性处理  让每个浏览器都可以使用
+            var e = e || window.event
+            console.log(e)
+            console.log(num1)
+            console.log(num2)
+            console.log(num3)
+                // e.clientX    鼠标距离浏览器左边边框的间距
+                // e.clientY    鼠标距离浏览器上边边框的间距
+                // e.target     鼠标的作用元素
+        }
+    </script>
+</body>
+
+</html>

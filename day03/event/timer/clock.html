@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="clock"></div>
+
+<body>
+    <script>
+        setInterval(function() {
+            var myDate = new Date()
+            var s = myDate.getSeconds()
+            var m = myDate.getMinutes()
+            var h = myDate.getHours()
+            if (s < 10) {
+                s = '0' + s
+            }
+            if (h < 10) {
+                h = '0' + h
+            }
+            if (m < 10) {
+                m = '0' + m
+            }
+            clock.innerHTML = '<h1>' + h + ':' + m + ':' + s + '</h1>'
+        }, 1000)
+    </script>
+</body>
+
+</html>

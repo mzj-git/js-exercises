@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>猜数字</h1>
+    <input type="text">
+    <button>确定</button>
+    <script>
+        var num = Math.random() * 100
+
+        num = Math.ceil(num)
+        alert('生成的数为：' + num)
+            //console.log(Math.ceil(num))向上取数
+            //console.log(Math.floor(num))向下取数
+        document.getElementsByTagName('button')[0].onclick = function() {
+            var value = document.getElementsByTagName('input')[0].value
+            if (value > num) {
+                alert('猜大了')
+            } else if (value < num) {
+                alert('猜小了')
+
+            } else {
+                alert('猜对了')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 50px;
+            border: 2px solid red;
+            margin-top: 10px;
+        }
+        input{
+            width: 400px;
+            height: 40px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="fn()">
+        点击事件
+    </div>
+    <div onmouseover="fn()">
+        鼠标移入事件
+    </div>
+    <div onmouseout="fn()">
+        鼠标移出事件
+    </div>
+    <div onmousedown="fn()">
+        鼠标按下事件
+    </div>
+    <div onmouseup="fn()">
+        鼠标松开事件
+    </div>
+    <div onmousemove="fn()">
+        鼠标移动事件
+    </div>
+    <input type="text" onfocus="inputEvent('获得焦点')" onblur="inputEvent('失去焦点')" onchange="inputEvent('change')" oninput="inputEvent('input')">
+
+    <select onfocus="inputEvent('select的获得焦点')">
+        <option>web前端</option>
+        <option>java</option>
+        <option>嵌入式</option>
+        <option>信息安全</option>
+    </select>
+
+    <script>
+        // 事件
+        /*
+            click   点击事件
+            dbclick
+            mousedown  鼠标按下事件
+            mouseup    鼠标松开事件
+            mouseover  鼠标进入事件
+            mouseenter
+            mouseout   鼠标离开事件
+            mouseleave
+            mousemove  鼠标在目标元素上移动的事件  (不用alert)
+            focus      获得焦点事件
+            blur       失去焦点事件
+            change     表单的内容  发生变化  并且失去焦点的时候触发
+            input      表单的内容 发生变化时触发
+
+
+            自行了解键盘事件
+        */
+        function fn(){
+            console.log('我是div的事件')
+        }
+        function inputEvent(text){
+            console.log('我是input的'+text+'事件')
+        }
+    </script>
+</body>
+</html>

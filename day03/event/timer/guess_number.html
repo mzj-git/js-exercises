@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: coral;
+            margin: 5px;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var num = Math.round(Math.random() * 100)
+        console.log(num)
+        for (var i = 0; i < 101; i++) {
+            var btn = document.createElement('button')
+            btn.innerHTML = i
+            if (i % 10 == 0) {
+                document.body.innerHTML = document.body.innerHTML + '<br>'
+            }
+            document.body.appendChild(btn)
+
+        }
+        var btns = document.getElementsByTagName('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                if (this.innerHTML > num) {
+                    alert('猜大了')
+                } else if (this.innerHTML < num) {
+                    alert('猜小了')
+                } else if (this.innerHTML == num) {
+                    alert('猜对了')
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time"></div>
+    <script>
+        var h = '1'
+        var m = 59
+        var s = 59
+        var timer = setInterval(function() {
+            s--
+            if (s < 0) {
+                m--
+                s = 59
+            }
+            if (m < 0) {
+                h--
+                m = 59
+            }
+            if (h < 0) {
+                s = 0
+                m = 0
+                h = 0
+                clearInterval(timer)
+            }
+            if (s < 10) {
+                s = '0' + s
+            }
+            if (m < 10) {
+                m = '0' + m
+            }
+            time.innerHTML = '<h1>' + h + ':' + m + ':' + s + '</h1>'
+        }, 1000)
+    </script>
+</body>
+
+</html>

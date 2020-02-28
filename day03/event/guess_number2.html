@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            width: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>猜数字</h1>
+    请输入随机数的范围：<input type="text" id="kuang1"> -- <input type="text" id="kuang2"><button id="ok1">确定</button></br>
+    请输入猜的数字：<input type="text" id="kuang3"><button id="ok2">确定</button></br>
+
+    <script>
+        var num = Math.random() * 100
+
+        num = Math.ceil(num)
+        console.log(num)
+        document.getElementById('ok1').onclick = function() {
+            var m = document.getElementById('kuang1').value
+
+            var n = document.getElementById('kuang2').value
+
+            document.getElementById('ok2').onclick = function() {
+                function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min; //不含最大值，含最小值
+                }
+
+                var num1 = getRandomInt(m, n)
+                console.log(num1)
+                document.getElementById('kuang3').value = num1
+
+                if (num1 > num) {
+
+
+                    alert('猜大了')
+
+                } else if (num1 < num) {
+
+                    alert('猜小了')
+
+                } else {
+
+                    alert('猜对了')
+
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

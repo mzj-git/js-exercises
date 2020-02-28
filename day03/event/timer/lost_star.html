@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        setInterval(function() {
+            var img = document.createElement('img')
+            img.src = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2842441554,331203440&fm=26&gp=0.jpg'
+            var w = Math.random() * 500
+            var l = Math.random() * 1000
+            var t = Math.random() * 1000
+            img.width = w
+            img.style.left = l + 'px'
+            img.style.top = t + 'px'
+            img.onclick = function() {
+                hide(this)
+            }
+            document.body.appendChild(img)
+
+
+        }, 3000)
+
+        function hide(_this) {
+            document.body.removeChild(_this)
+        }
+    </script>
+</body>
+
+</html>

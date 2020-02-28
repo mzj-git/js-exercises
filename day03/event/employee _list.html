@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <p>姓名：<input type="text"></p>
+    <p>年龄：<input type="text"></p>
+    <p>职位：<input type="text"></p>
+    <p>电话：<input type="text"></p>
+    <p>薪资：<input type="text"></p>
+    <p>住址：<input type="text"></p>
+    <button>添加员工信息</button>
+    <hr>
+
+    <table border="1" width="100%" cellspacing="0">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>职位</th>
+            <th>电话</th>
+            <th>薪资</th>
+            <th>住址</th>
+            <td>操作</td>
+        </tr>
+
+
+    </table>
+
+    <script>
+        var btn = document.getElementsByTagName('button')[0]
+        var ipt = document.getElementsByTagName('input')[0]
+        var table = document.getElementsByTagName('table')[0]
+        btn.onclick = function() {
+            var tr = document.createElement('tr')
+
+            tr.innerHTML = ipt.value
+            table.appendChild(tr)
+
+        }
+    </script>
+</body>
+
+</html>

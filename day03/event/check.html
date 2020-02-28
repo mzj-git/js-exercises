@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>全选</button></br>
+    <button>不选</button></br>
+    <button>反选</button></br>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <script>
+        window.onload = function() {
+            // 获取所有的按钮
+            var buttons = document.getElementsByTagName("button");
+            // 获取所有的选项input
+            var inputs = document.getElementsByTagName("input");
+
+            // 全选或者不选的时候 调用此函数
+            function fn(flag) {
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].checked = flag;
+                }
+            }
+
+            //获取第一个按钮  “全选”
+            buttons[0].onclick = function() {
+                fn(true);
+            }
+
+            // 获取第二个按钮 "不选"
+            buttons[1].onclick = function() {
+                    fn(false);
+                }
+                // 获取第三个按钮 “反选”
+            buttons[2].onclick = function() {
+                // 遍历所有的选项，判断每一个选项是否被选中
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].checked == true) {
+                        inputs[i].checked = false
+                    } else {
+                        inputs[i].checked = true;
+                    }
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

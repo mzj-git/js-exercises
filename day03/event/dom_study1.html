@@ -9,17 +9,22 @@
 </head>
 
 <body>
+    <input type="password">
+    <button onclick="o()">查看</button>
+    <button onclick="c()">关闭</button>
     <script>
-        var obj = {
-            name: 'mzj'
+        var x = document.getElementsByTagName("input")[0]
+
+        function o() {
+
+            x.type = "text"
+
+        };
+
+        function c() {
+
+            x.type = "password"
         }
-        var obj1 = {}
-        for (var key in obj) {
-            obj1[key] = obj[key]
-        }
-        obj1.name
-        console.log(obj)
-        console.log(obj1)
     </script>
 </body>
 
