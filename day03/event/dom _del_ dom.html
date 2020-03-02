@@ -25,11 +25,12 @@
             li.innerHTML = ipt.value + '<button onclick= "delli(this)" class="del">删除</button>'
             ul.appendChild(li)
         }
+
         var dels = document.getElementsByClassName('del')
         for (var i = 0; i < dels.length; i++) {
             dels[i].index = i
             dels[i].onclick = function() {
-                ul.removeChild(this.parentElement) //指针，ul.removeChild(this的父元素)，这的父元素指的是calss="del"的button标签
+                ul.removeChild(btns[this.index].parentElement) //指针，ul.removeChild(this的父元素)，这的父元素指的是calss="del"的button标签
             }
             delli(this) //对应的button
         }
