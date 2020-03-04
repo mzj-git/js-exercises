@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #one {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>我是div</div>
+    <p>我是第一个p标签</p>
+    <p id="two">我是第二个p标签</p>
+    <p>我是第三个p标签</p>
+    <div id="one">
+        <p id="four">我是第四个p标签</p>
+    </div>
+    <p>我是第五个p标签</p>
+
+    <div id="one">我是id的div</div>
+    <button>clone me!</button>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        //$('p').append('<b>我是p标签</b>')
+        //$('p').appendTo('div')
+        //$('p').prepend('<h3>说明：</h3>')
+        //$('p').prependTo('#one')
+        //$('p').after('<input>')
+        //$('p').before('<div id=one>我是id的div<div>')
+        //$('p').insertAfter('div')
+        //$('p').insertBefore('div')
+        //$('#two').wrap('#one')
+        //$('#four').unwrap('#one')
+        //$('p').wrapAll('#one')
+        //$('p').wrapInner('<b></b>')
+        //$('p').replaceWith('<b>hello</b>')
+        //$('<b>hi</b>').replaceAll('p')
+        //$('p').empty()
+        //$('p').detach('#two')
+        //$('button').click(function() {
+        //    $(this).clone(true).insertAfter(this)
+        //})
+        $('#two').clone().prependTo("p")
+    </script>
+</body>
+
+</html>

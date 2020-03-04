@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    猜的数字为：<input type="text" value="1">
+    <p>请选择</p>
+    <div></div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        //$('input').attr({
+        //   value: '5'
+        //})
+        //$('input').removeAttr('value')
+        //alert($('p').html())
+
+        //猜数字
+        var num1 = Math.round(Math.random() * 100)
+        $('input').attr({
+            value: num1
+        })
+        for (var i = 0; i <= 100; i++) {
+
+            $('div').append('<button>' + i + '</button>')
+        }
+
+        $('button').click(function() {
+            var num2 = $(this).html()
+            if (num1 > num2) {
+                alert('猜小了')
+
+            } else if (num1 < num2) {
+                alert('猜大了')
+            } else if (num1 = num2) {
+                alert('猜对了')
+            }
+
+        })
+    </script>
+</body>
+
+</html>

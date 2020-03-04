@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>hello</p>
+    </div>
+    <div id="one" class="three"></div>
+    <div id="oke" class="three"></div>
+    <div id="two" class="five"></div>
+    <input type="checkbox" name="newsletter" value="Hot Fuzz" />
+    <input type="checkbox" name="newsletter" value="Cold Fusion" />
+    <input type="checkbox" name="accept" value="Evil Plans" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        console.log($('div[id]'))
+        console.log($("div[id='one']"))
+        console.log($("div[id^='o']"))
+        console.log($("div[id$='o']"))
+        console.log($("div[id*='o']"))
+        console.log($("div[id][class='three']"))
+        console.log($("div[id][class^='f']"))
+        console.log($("div[id][class$='e']"))
+    </script>
+</body>
+
+</html>

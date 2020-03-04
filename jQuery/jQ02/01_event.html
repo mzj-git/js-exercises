@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">hello</div>
+    <div>hello</div>
+    <div>hello</div>
+    <div>hello</div>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        //$('div').on('click', function() {
+        //   console.log('点击了')
+        //})
+        //console.log($('div'))
+        //console.log($('#one'))
+
+        //$('div').bind('click', function() {
+        //  console.log('点击了')
+        //})
+        //$('div').bind('mouseenter mouseleave', function() {
+        //    console.log('触发事件')
+        //})
+
+        // $('#one').bind({
+        //    click: function() {
+        //       console.log('点击了')
+        //  },
+        // mouseenter: function() {
+        //     console.log('鼠标移入的函数')
+        // },
+        // mouseleave: function() {
+        //    console.log('鼠标移出的函数')
+        // }
+        // })
+
+        // function handler(e) {
+        //    console.log(e)
+        // }
+        // $('#one').bind("click", handler)
+        $("p").one("click", function() {
+            alert($(this).text());
+        });
+    </script>
+</body>
+
+</html>

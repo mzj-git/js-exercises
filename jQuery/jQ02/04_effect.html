@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button><h1>chick me</h1></button>
+
+    <div style="display: block;">hello</div>
+    <p>文档</p>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        //$('button').click(function() {
+        //  $('div').show('fast')
+        // })
+        // $('button').click(function() {
+        // $('div').hide('fast')
+        // })//执行时css里diplay不写
+        // $('button').click(function() {
+        //   $('div').toggle('fast')
+        // })
+        //$('button').click(function() {
+
+        //   $('div').slideDown('slow')
+        // })
+
+        // $("p").slideUp("fast", function() {
+        //    alert("Animation Done.");
+        // });
+        //$("p").slideToggle("fast", function() {
+        //   alert("Animation Done.");
+        //});
+        $('button').click(function() {
+            $('div').fadeToggle('slow')
+        })
+    </script>
+</body>
+
+</html>

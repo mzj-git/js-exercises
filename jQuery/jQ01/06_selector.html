@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="n1">
+        <div id="n2" class="abc">
+            <p id="n3">label1</p>
+            <span id="n4">span1</span>
+            <span id="n5" class="abc">span2</span>
+            <span id="n6">span3</span>
+        </div>
+        <div id="n7">
+            <span id="n8" class="abc">span1</span>
+            <span id="n9">span2</span>
+        </div>
+        <div>
+            <span>123</span>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        console.log($('span:first-of-type'))
+        console.log($('span:last-of-type'))
+        console.log($('span:only-of-type'))
+    </script>
+</body>
+
+</html>

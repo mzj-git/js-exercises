@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" name="newsletter" checked="checked" value="Daily" />
+    <input type="checkbox" name="newsletter" value="Weekly" />
+    <input type="checkbox" name="newsletter" checked="checked" value="Monthly" />
+    <select>
+        <option value="1">Flowers</option>
+        <option value="2" selected="selected">Gardens</option>
+        <option value="3">Trees</option>
+      </select>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        console.log($('input:checked'))
+        console.log($('select option:selected'))
+    </script>
+</body>
+
+</html>
