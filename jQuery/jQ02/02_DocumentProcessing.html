@@ -45,9 +45,9 @@
         //$('<b>hi</b>').replaceAll('p')
         //$('p').empty()
         //$('p').detach('#two')
-        //$('button').click(function() {
-        //    $(this).clone(true).insertAfter(this)
-        //})
+        $('button').click(function() {
+            $(this).clone(true).insertAfter(this)
+        })
         $('#two').clone().prependTo("p")
     </script>
 </body>
