@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        img {
+            width: 500px;
+            height: 313px;
+            display: none;
+        }
+        
+        div {
+            width: 500px;
+            height: 313px;
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        img.show {
+            display: inline-block;
+        }
+        
+        li {
+            list-style: none;
+            width: 20px;
+            height: 5px;
+            background: #fff;
+            border-radius: 5px;
+            float: left;
+            margin-left: 10px;
+        }
+        
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        ul {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        
+        li.active {
+            background: #ff9900;
+        }
+        
+        p {
+            position: absolute;
+            top: 40%;
+            width: 50px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        p:first-of-type {
+            left: 0;
+        }
+        
+        p:last-of-type {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+        <img class="show" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3065281538,3019209778&fm=26&gp=0.jpg" alt="">
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2748261974,591562878&fm=26&gp=0.jpg" alt="">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4037270679,4148203793&fm=26&gp=0.jpg" alt="">
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2322289894,465998547&fm=15&gp=0.jpg" alt="">
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2130835639,723332535&fm=26&gp=0.jpg" alt="">
+        <ul class="clear">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p id="prev">
+            <</p>
+                <p id="next">></p>
+    </div>
+    <script>
+        // 1. 点击li  切换对应的图片   将之前显示的图片隐藏了    将对应的图片显示
+
+        var num = 0; // 之前显示图片的下标
+        var li = document.getElementsByTagName('li')
+        var img = document.getElementsByTagName('img')
+        for (var i = 0; i < li.length; i++) {
+            li[i].index = i
+            li[i].onclick = function() {
+                img[num].classList.remove('show')
+                li[num].classList.remove('active')
+                img[this.index].classList.add('show')
+                this.classList.add('active')
+                    // 将这次点击的下标  给了num   下次点击的时候  隐藏的就是这次出现的img
+                num = this.index
+            }
+        }
+        // 点击上一张   num-1  下一张  num+1
+        prev.onclick = function() {
+            img[num].classList.remove('show')
+            li[num].classList.remove('active')
+            if (num == 0) {
+                num = li.length - 1
+            } else {
+                num--
+            }
+            img[num].classList.add('show')
+            li[num].classList.add('active')
+
+        }
+        next.onclick = function() {
+            nextClick()
+        }
+        var timer = setInterval(function() {
+            nextClick()
+        }, 1000)
+        box.onmouseenter = function() {
+            clearInterval(timer)
+        }
+        box.onmouseleave = function() {
+            timer = setInterval(function() {
+                nextClick()
+            }, 1000)
+        }
+
+        function nextClick() {
+            img[num].classList.remove('show')
+            li[num].classList.remove('active')
+            if (num == li.length - 1) {
+                num = 0
+            } else {
+                num++
+            }
+            img[num].classList.add('show')
+            li[num].classList.add('active')
+        }
+    </script>
+</body>
+
+</html>

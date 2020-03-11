@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            width: 500px;
+            height: 313px;
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        img {
+            width: 500px;
+            height: 313px;
+            display: none;
+        }
+        
+        img.show {
+            display: inline-block
+        }
+        
+        ul {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        li {
+            list-style: none;
+            width: 20px;
+            height: 5px;
+            background: #fff;
+            border-radius: 5px;
+            float: left;
+            margin-left: 10px;
+        }
+        
+        li.active {
+            background: #ff9900;
+        }
+        
+        p {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            top: 130px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        p:first-of-type {
+            left: 0;
+        }
+        
+        p:last-of-type {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img class="show" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582881347689&di=29e390937382c9068f3ebcb6d2827ce7&imgtype=0&src=http%3A%2F%2Fb.zol-img.com.cn%2Fdesk%2Fbizhi%2Fimage%2F3%2F960x600%2F13782593484.jpg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582881347685&di=022d0d914dd045a55288559ca1e51d64&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F570ef930325ab_270_185.jpg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582881347685&di=5f27db235eb6b1bd887b4126c08727a5&imgtype=0&src=http%3A%2F%2Fwww.bizhidaquan.com%2Fd%2Ffile%2Ftiyu%2Fzuqiu%2F2015-01-07%2F140e4a569657e6db0fe0f96854cbdc49.jpg"
+            alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582881347684&di=6c7a6e19d9ba0a32738641e771e33381&imgtype=0&src=http%3A%2F%2Fpic7.nipic.com%2F20100605%2F1866517_112048580607_2.jpg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582881347682&di=a4f0a738f29b56157f6d4088893a373f&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F377adab44aed2e73200dd3e48201a18b86d6fa16.jpg"
+            alt="">
+        <ul class="clear">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p id="prev">
+            <</p>
+                <p id="next">></p>
+    </div>
+    <script>
+        var num = 0
+
+        var li = document.getElementsByTagName('li')
+        var img = document.getElementsByTagName('img')
+        for (var i = 0; i < li.length; i++) {
+            li[i].index = i
+            li[i].onclick = function() {
+
+                li[num].classList.remove('active')
+                img[num].classList.remove('show')
+
+
+                img[this.index].classList.add('show')
+                this.classList.add('active')
+                num = this.index
+            }
+        }
+        prev.onclick = function() {
+            li[num].classList.remove('active')
+            img[num].classList.remove('show')
+            if (num == 0) {
+                num = li.length - 1
+            } else {
+                num--
+            }
+            li[num].classList.add('active')
+            img[num].classList.add('show')
+        }
+        next.onclick = function() {
+            nextClick()
+        }
+
+        function nextClick() {
+            img[num].classList.remove('show')
+            li[num].classList.remove('active')
+            if (num == li.length - 1) {
+                num = 0
+            } else {
+                num++
+            }
+            img[num].classList.add('show')
+            li[num].classList.add('active')
+        }
+        var timer = setInterval(function() {
+            nextClick()
+        }, 1000)
+        box.onmouseenter = function() {
+            clearInterval(timer)
+        }
+        box.onmouseleave = function() {
+            timer = setInterval(function() {
+                nextClick()
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

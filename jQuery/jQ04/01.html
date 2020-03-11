@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        #ad_top {
+            width: 100%;
+            height: 120px;
+            box-sizing: border-box;
+            background: url(../images/ad.jpg) no-repeat center 0;
+            cursor: pointer;
+        }
+        
+        .site-nav {
+            font-size: 12px;
+            height: 40px;
+            background: #333;
+            position: relative;
+        }
+        
+        .site-nav-content {
+            width: 1226px;
+            height: 40px;
+            margin: 0 auto;
+            color: #b0b0b0;
+            line-height: 40px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .site-nav-left {
+            width: 600px;
+            float: left;
+        }
+        
+        .site-nav-left a {
+            color: #b0b0b0;
+        }
+        
+        .shu {
+            color: #424242;
+            padding: 0 5px;
+        }
+        
+        .site-nav-left li {
+            float: left;
+        }
+        
+        .site-nav-left a:hover {
+            color: #fff;
+        }
+        
+        .site-nav-right {
+            float: left;
+            height: 40px;
+            box-sizing: border-box;
+            margin-left: 350px;
+        }
+        
+        .site-nav-right li {
+            float: left;
+        }
+        
+        .site-nav-right a {
+            color: #b0b0b0;
+        }
+        
+        .site-nav-right a:hover {
+            color: #fff;
+        }
+        
+        .shop-cart {
+            float: right;
+            cursor: pointer;
+            width: 120px;
+            background: #424242;
+        }
+        
+        .shop-cart-title {
+            text-align: center;
+        }
+        
+        .shop-cart-title:hover {
+            background: #fff;
+            color: #ff6700;
+        }
+        
+        .shop-cart:hover .cart-content {
+            display: block;
+        }
+        
+        .cart-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 320px;
+            height: 100px;
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px #b0b0b0;
+            background: #fff;
+        }
+        
+        .cart-content p {
+            margin-top: 30px;
+        }
+        /*main*/
+        
+        .main {
+            width: 1226px;
+            height: 1200px;
+            /*之后删除*/
+            margin: 0 auto;
+        }
+        
+        .main-nav {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-nav-mid {
+            width: 100%;
+            height: 66px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-nav img {}
+        
+        .main-nav-ul {}
+        
+        .main-nav-ul>li {
+            float: left;
+            font-size: 16px;
+            color: #333;
+            font-family: "sans-serif";
+        }
+        
+        .main-nav-ul>li a {
+            display: inline-block;
+            padding: 0 7px;
+            height: 100%;
+        }
+        
+        .main-nav-ul>li:hover a {
+            color: #ff6700;
+        }
+        
+        .main-nav-ul>li:hover .main-nav-li {
+            display: block;
+        }
+        
+        .main-nav-li {
+            width: 100%;
+            height: 230px;
+            position: absolute;
+            top: 142px;
+            left: 0;
+            background: #fff;
+            border: 1px #D8DBDB solid;
+            box-shadow: 0 2px 5px #D8DBDB;
+            display: none;
+            z-index: 2;
+        }
+        
+        .main-nav-li>ul {
+            width: 1226px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        
+        .main-nav-li li {
+            position: relative;
+            width: 205px;
+            height: 100%;
+            text-align: center;
+            float: left;
+        }
+        
+        .main-nav-li-title {
+            border: 1px #ff6700 solid;
+            color: #ff6700;
+            padding: 2px 20px;
+            line-height: 14px;
+            font-size: 14px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .main-nav-li img {
+            margin-top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .main-nav-li-p {
+            font-size: 14px;
+            line-height: 20px;
+            transform: translateY(-50px);
+        }
+        
+        .main-nav-li-p:last-of-type {
+            color: #ff6700;
+        }
+        
+        .main-nav-li-shu {
+            height: 100px;
+        }
+        
+        .search-content {
+            position: relative;
+            width: 300px;
+            height: 100%;
+            margin-left: 68px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-ipt {
+            width: 250px;
+            height: 50px;
+            outline: #333;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        .search-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px #A9A9A9 solid;
+            box-sizing: border-box;
+            border-left: none;
+        }
+        
+        .search-btn:hover {
+            background: #ff6700;
+            cursor: pointer;
+        }
+        
+        .search-ipt-title {
+            position: absolute;
+            top: 25px;
+            left: 100px;
+        }
+        
+        .search-ipt-titles {
+            background: #eee;
+            padding: 2px 5px 4px 5px;
+        }
+        
+        .search-ipt-titles:hover {
+            background: #ff6700;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        
+        .all-nav-content {
+            position: relative;
+            width: 100%;
+            height: 460px;
+        }
+        
+        .all-nav-left {
+            position: absolute;
+            width: 235px;
+            height: 100%;
+            box-sizing: border-box;
+            border: 1px #666666 solid;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .all-nav-left-ul {
+            width: 100%;
+            height: 425px;
+            margin-top: 17px;
+            box-sizing: border-box;
+            font-family: "sans-serif";
+        }
+        
+        .all-nav-left-ul>li {
+            width: 100%;
+            font-size: 14px;
+            height: 42px;
+            line-height: 42px;
+            color: #fff;
+            padding: 0 28px;
+            box-sizing: border-box;
+            float: left;
+        }
+        
+        .all-nav-left-ul>li:hover {
+            background: #ff6700;
+        }
+        
+        .all-nav-left-ul>li:hover .all-nav-left-warp {
+            display: block;
+        }
+        
+        .all-nav-left-ul>li p {
+            cursor: pointer;
+        }
+        
+        .all-nav-left-warp {
+            position: absolute;
+            top: 0;
+            left: 233px;
+            width: 400px;
+            height: 100%;
+            border: 1px #D8DBDB solid;
+            padding-top: 17px;
+            box-sizing: border-box;
+            display: none;
+            box-shadow: 0 2px 5px #D8DBDB;
+            background: #fff;
+        }
+        
+        .all-nav-left-warp>li {
+            width: 255px;
+            height: 70px;
+            z-index: 2;
+        }
+        
+        .all-nav-left-warp>li img {
+            transform: translateY(15px);
+        }
+        
+        .xg {
+            border: 1px #ff6700 solid;
+            padding: 2px 16px;
+            color: #ff6700;
+            float: right;
+            line-height: 20px;
+            transform: translateY(22px);
+        }
+        
+        .xg:hover {
+            background: #ff6700;
+            color: #fff;
+        }
+        
+        .lf-box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .lf-box>a {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+        
+        .lf-box a img {
+            cursor: pointer;
+        }
+        
+        .pre {
+            position: absolute;
+            top: 50%;
+            left: 235px;
+            transform: translateY(-50%);
+        }
+        
+        .next {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        
+        .pre,
+        .next {
+            font-size: 25px;
+            cursor: pointer;
+            padding: 20px 10px;
+            line-height: 25px;
+            color: grey;
+            z-index: -1;
+        }
+        
+        .pre:hover,
+        .next:hover {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+        
+        .small-dot {
+            width: 162px;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+        }
+        
+        .small-dot>li {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #333;
+            float: left;
+            margin: 0 10px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .small-dot>li:first-of-type {
+            background: #fff;
+        }
+        
+        .floor2 {
+            width: 100%;
+            height: 172px;
+            margin-top: 20px;
+        }
+        
+        .floor2>ul>li {
+            width: 316px;
+            height: 172px;
+            float: left;
+        }
+        
+        .floor2>ul>li:not(:last-of-type) {
+            margin-right: 14px;
+        }
+        
+        .floor2>ul>li:first-of-type {
+            width: 235px;
+            height: 172px;
+            float: left;
+        }
+        
+        .floor2-one>ul>li {
+            width: 78px;
+            height: 86px;
+            background: #5F5750;
+            color: #CDCAC8;
+            float: left;
+            text-align: center;
+        }
+        
+        .floor2-one>ul>li img {
+            margin-top: 12px;
+        }
+        
+        .mi-star {
+            width: 100%;
+            height: 390px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .star-title {
+            font-size: 20px;
+            font-family: "sans-serif";
+        }
+        
+        .star-btn {
+            width: 70px;
+            height: 20px;
+            border: 1px grey solid;
+            position: absolute;
+            top: 5px;
+            right: 0;
+        }
+        
+        .star-btn span {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+        
+        .star-btn span:hover {
+            color: #ff6700;
+        }
+        
+        .star-btn span:first-of-type {
+            border-right: 1px grey solid;
+        }
+        
+        .mi-star-div {
+            width: 100%;
+            height: 340px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .mi-star-div li {
+            width: 232px;
+            height: 100%;
+            float: left;
+            border-top: 1px #FFAC13 solid;
+            background: #FAFAFA;
+            font-size: 14px;
+            text-align: center;
+            font-family: "sans-serif";
+            margin-right: 13px;
+            box-sizing: border-box;
+        }
+        
+        .mi-star-div li img {
+            margin-top: 40px;
+        }
+        
+        .mi-star-div li p:first-of-type {
+            margin: 20px 0 10px 0;
+        }
+        
+        .mi-star-div>ul {
+            width: 3000px;
+            height: 100%;
+        }
+        
+        .star-center-p {
+            color: #B0B0B0;
+            font-size: 12px;
+        }
+        
+        .star-red {
+            color: #ff6700;
+            margin-top: 25px;
+        }
+        /*满屏*/
+        
+        .manDiv {
+            width: 100%;
+            background: #FAFAFA;
+            box-sizing: border-box;
+            padding-top: 35px;
+        }
+        
+        .floor-main {
+            width: 1226px;
+            margin: 0 auto;
+            position: relative;
+            margin-top: 35px;
+        }
+        
+        .floor-main>h2 {
+            font-size: 22px;
+            font-weight: 200;
+            line-height: 58px;
+            color: #333;
+            font-smoothing: antialiased;
+            font-family: "sans-serif";
+        }
+        
+        .floor-content {
+            width: 100%;
+            height: 615px;
+            text-align: center;
+            font-family: "sans-serif";
+        }
+        
+        .floor-content-left {
+            width: 235px;
+            height: 100%;
+            float: left;
+        }
+        
+        .floor-content-right {
+            width: 982px;
+            height: 100%;
+            float: right;
+        }
+        
+        .floor-content-right:not(:first-of-type) {
+            display: none;
+        }
+        
+        .floor-ps {
+            margin: 5px 0 15px 0;
+        }
+        
+        .floor-ps>span {
+            background: #e53935;
+            color: #fff;
+            padding: 2px 20px;
+        }
+        
+        .floor-content-right>li {
+            width: 235px;
+            height: 300px;
+            font-size: 14px;
+            background: #fff;
+            position: relative;
+            float: left;
+            margin: 0 8px 10px 0;
+        }
+        
+        .floor-intro {
+            margin-top: 20px;
+        }
+        
+        .floor-priceTime {
+            margin: 5px 0 15px 0;
+            color: grey;
+            font-size: 12px;
+        }
+        
+        .floor-font-red {
+            margin-right: 3px;
+            color: #ff6700;
+        }
+        
+        .floor-up {
+            width: 100%;
+            height: 77px;
+            background: #ff6700;
+            padding: 10px 28px;
+            box-sizing: border-box;
+            font-size: 12px;
+            color: #fff;
+            line-height: 16px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+        
+        .floor-comment {
+            text-align: left;
+        }
+        
+        .floor-comment-from {
+            text-align: left;
+            margin-top: 7px;
+            color: #A4A3A3;
+        }
+        
+        .floor-nav {
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .floor-nav>li {
+            display: inline;
+            font-size: 16px;
+            margin: 0 0 0 30px;
+            font-family: "sans-serif";
+            cursor: pointer;
+            padding: 2px;
+            border-bottom: 2px transparent solid;
+            color: #424242;
+        }
+        
+        .floor-nav>li:first-of-type {
+            border-bottom: 2px #ff6700 solid;
+            color: #ff6700;
+        }
+        
+        .floor-nav>li:hover {
+            border-bottom: 2px #ff6700 solid;
+            color: #ff6700;
+            transition: border-color .5s;
+        }
+        
+        .tuijian {
+            width: 1226px;
+            margin: 0 auto;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents {
+            width: 1226px;
+            margin: 0 auto;
+        }
+        
+        .floor-contents>h2 {
+            font-size: 22px;
+            font-weight: 200;
+            line-height: 58px;
+            color: #333;
+            font-smoothing: antialiased;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents-ul {
+            width: 100%;
+            height: 420px;
+        }
+        
+        .floor-contents-ul>li {
+            width: 300px;
+            height: 100%;
+            border-top: 1px #ff6700 solid;
+            position: relative;
+            float: left;
+            background: #fff;
+            overflow: hidden;
+        }
+        
+        .floor-contents-ul>li:not(:last-of-type) {
+            margin-right: 8px;
+        }
+        
+        .floor-contents-ul>li:hover .floor-contents-pre {
+            display: block;
+            transition: all .5s;
+        }
+        
+        .floor-contents-ul>li:hover .floor-contents-next {
+            display: block;
+            transition: all .5s;
+        }
+        
+        .floor-contents-each>p:last-of-type {
+            line-height: 4;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents-classify {
+            margin: 50px 0 20px 0;
+            font-size: 16px;
+            color: #ffac13;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents-intro {
+            display: inline-block;
+            width: 240px;
+        }
+        
+        .floor-contents-intro>p:first-of-type {
+            font-size: 20px;
+            color: #333;
+            line-height: 2;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents-intro>p:last-of-type {
+            color: grey;
+            line-height: 1.5;
+            font-family: "sans-serif";
+        }
+        
+        .floor-contents-dot {
+            width: 64px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 30px;
+            left: 120px;
+        }
+        
+        .floor-contents-dot>li {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #555;
+            float: left;
+            cursor: pointer;
+        }
+        
+        .floor-contents-dot>li:first-of-type {
+            border: 2px #ff6700 solid;
+            background: #fff;
+        }
+        
+        .floor-contents-dot>li:not(:last-of-type) {
+            margin-right: 20px;
+        }
+        
+        .floor-contents-pre,
+        .floor-contents-next {
+            font-size: 20px;
+            background: #777;
+            color: white;
+            padding: 10px 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            transition: all .5s;
+            cursor: pointer;
+        }
+        
+        .floor-contents-pre {
+            left: 0;
+        }
+        
+        .floor-contents-next {
+            right: 0;
+        }
+        
+        .floor-contents-warp {
+            width: 1000px;
+            height: 100%;
+        }
+        
+        .floor-contents-each {
+            text-align: center;
+            width: 300px;
+            height: 100%;
+            float: left;
+        }
+        
+        footer {
+            width: 100%;
+            height: 275px;
+            box-sizing: border-box;
+            margin-top: 60px;
+            background: #fff;
+        }
+        
+        .foot-wrap {
+            width: 1226px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        
+        .foot-top {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px #E0E0E0 solid;
+        }
+        
+        .foot-top>ul {
+            width: 100%;
+            height: 30px;
+        }
+        
+        .foot-top>ul>li {
+            width: 243px;
+            height: 100%;
+            float: left;
+            text-align: center;
+        }
+        
+        .foot-top>ul>li:not(:last-of-type) {
+            border-right: 1px #E0E0E0 solid;
+        }
+        
+        .foot-top>ul>li>a>span {
+            vertical-align: 8px;
+            font-size: 16px;
+            color: #616161;
+            line-height: 16px;
+            font-family: "sans-serif";
+        }
+        
+        .foot-mid {
+            width: 100%;
+            height: 190px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .foot-mid-wrap {
+            width: 100%;
+            height: 120px;
+        }
+        
+        .foot-mid-wrap>ul {
+            width: 975px;
+            height: 100%;
+            float: left;
+        }
+        
+        .foot-mid-wrap>div {
+            width: 240px;
+            height: 100%;
+            float: right;
+            text-align: center;
+        }
+        
+        .foot-out-li {
+            width: 100px;
+            height: 100%;
+            font-size: 12px;
+            color: #757575;
+            font-family: "sans-serif";
+            float: left;
+        }
+        
+        .foot-out-li:not(:last-of-type) {
+            margin-right: 60px;
+        }
+        
+        .foot-out-li>p {
+            font-size: 14px;
+            color: #424242;
+            margin-bottom: 30px;
+        }
+        
+        .foot-out-li>ul>li>a:hover {
+            color: #ff6700;
+        }
+        
+        .foot-out-li>ul>li:not(:last-of-type) {
+            margin-bottom: 15px;
+        }
+        
+        .foot-kefu {
+            font-size: 22px;
+            color: #ff6700;
+            font-family: "sans-serif";
+            margin-bottom: 5px;
+        }
+        
+        .foot-time {
+            width: 100px;
+            margin: 0 auto 16px;
+            font-size: 12px;
+            color: #616161;
+            line-height: 16px;
+            font-family: "sans-serif";
+        }
+        
+        .foot-zixun {
+            width: 120px;
+            height: 30px;
+            margin: 0 auto;
+            border: 1px #ff6700 solid;
+        }
+        
+        .foot-zixun a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff6700;
+        }
+        
+        .foot-zixun a:hover {
+            background: #ff6700;
+            color: #fff;
+        }
+        
+        .foot-other {
+            width: 100%;
+            height: 145px;
+            background: #FAFAFA;
+        }
+        
+        .foot-other-wrap {
+            width: 1226px;
+            height: 60px;
+            margin: 30px auto 30px;
+        }
+        
+        .foot-other-wrap-left {
+            width: 820px;
+            height: 100%;
+            float: left;
+        }
+        
+        .foot-other-wrap-left>img {
+            float: left;
+        }
+        
+        .foot-other-wrap-left>div {
+            float: left;
+            margin-left: 10px;
+        }
+        
+        .foot-other-wrap-right {
+            width: 400px;
+            height: 100%;
+            float: right;
+        }
+        
+        .foot-other-wrap-right>a {
+            float: left;
+        }
+        
+        .foot-other-wrap-right img {
+            width: 82px;
+            height: 28px;
+            margin-left: 10px;
+        }
+        
+        .others {
+            margin-bottom: 3px;
+        }
+        
+        .others>li {
+            float: left;
+            font-family: "sans-serif";
+        }
+        
+        .others>li>a:hover {
+            color: #ff6700;
+        }
+        
+        .foot-other-wrap-left>div>p {
+            line-height: 18px;
+            font-size: 12px;
+            color: #B0B0B0;
+        }
+        
+        .niubi {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    div class="box">
+    <div class="top">
+        <a href="http://www.meituan.com"></a>
+    </div>
+    <div class="middle"><img src="images/下载.jpg" />
+        <div class="fr login">
+            <form>
+                <div class="msg"><i></i><span class="msgspan"></span></div>
+                <div class="logintype"><span class="type">账号登陆</span><a href="#" class="mobile fr hover">手机动态码登录<i class="tri"></i></a></div>
+                <div class="user"><i class="icon-user"></i><input id="userinput" type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号/用户名/邮箱" /></div>
+                <div class="password"><i class="icon-password"></i><input class="passwordinput" type="text" value="           密码" /></div>
+                <div class="login-auto">
+                    <div class="fl">
+                        <input type="checkbox" class="check" style="width:18px; height:13px;" />
+                        <span style="font-size:12px">七天内自动登录</span>
+                    </div>
+                </div>
+                <div class="login-on"><input class="login-button" type="button" value="登录" style="height:34px; color:#fff; font-weight:bold" /></div>
+                <p class="guide"><span>还没有账号？</span><a href="#">免费注册</a></p>
+            </form>
+            <div class="link">
+                <div class="title"><span class="con">&nbsp;&nbsp;用合作网站账号登陆&nbsp;&nbsp; </span></div>
+                <div class="style">
+                    <a class="one"></a>
+                    <a class="another"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="navbox">
+            <ul class="fl">
+                <li><a href="#">关于美团</a></li>
+                <li><a href="#">美团承诺</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">商家入驻</a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">美团手机版</a></li>
+            </ul>
+            <p class="fr promise">
+                <a href="#"><img src="images/QQ截图20170707184816.png" /><span>随时退</span></a>
+                <a href="#"><img src="images/QQ截图20170707191749.png" /><span>过期退</span></a>
+                <a href="#"><img src="images/QQ截图20170707184901.png" /><span>不满意免单</span></a>
+            </p>
+        </div>
+        <div class="copyright">
+            <p> 2017&nbsp;
+                <a href="http://www.meituan.com">美团网团购</a>&nbsp;meituan.com&nbsp;
+                <a href="http://www.miibeian.gov.cn">京ICP证070791号</a>&nbsp;京公网安备11010502025545号&nbsp;
+                <a href="http://www.meituan.com/about/rules">电子公告服务规则</a>
+            </p>
+        </div>
+    </div>
+    </div>
+    <div class="top">
+        <div class="topmenu">
+            <div class="topmenuleft fl">
+                <ul>
+                    <li>收藏美团</li>
+                    <li class="dec"><a href="2.html" target="_blank" style="color:red;">登录</a></li>
+                    <li class="dec"><a href="#">注册</a><i class="line"></i></li>
+                </ul>
+            </div>
+            <div class="topmenuright fr">
+                <ul class="a">
+                    <li class="dec"><a href="" class="order">我的订单</a></li>
+                    <li class="togli"><a href="" class="toga">我的美团<i class="tri"></i><i class="right_line"></i></a>
+                        <ul class="togul">
+                            <li><a href="">我的订单</a></li>
+                            <li><a href="">我的评价</a></li>
+                            <li><a href="">我的收藏</a></li>
+                            <li><a href="">抵用卷</a></li>
+                            <li><a href="">我的余额</a></li>
+                            <li><a href="">账户设置</a></li>
+                        </ul>
+                    </li>
+                    <li class="togli"><a href="" class="toga">最近浏览<i class="tri"></i><i class="right_line"></i></a>
+                        <ul class="togul">
+                            <li><a href="">暂无浏览记录</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="togli"><a href="" class="toga">联系客服<i class="tri"></i><i class="right_line"></i></a>
+                        <ul class="togul">
+                            <li><a href="">申请退款</a></li>
+                            <li><a href="">申请退换货</a></li>
+                            <li><a href="">查看美团券</a></li>
+                            <li><a href="">换绑手机号</a></li>
+                            <li><a href="">常见问题</a></li>
+                        </ul>
+                    </li>
+                    <li class="togli"><a href="" class="toga">我是商家<i class="tri"></i><i class="right_line"></i></a>
+                        <ul class="togul">
+                            <li><a href="">登录商家中心</a></li>
+                            <li><a href="">我想合作</a></li>
+                            <li><a href="">手机免费开店</a></li>
+                            <li><a href="">商家营销平台</a></li>
+                        </ul>
+                    </li>
+                    <li class="togli"><a href="" class="toga">代理商招募<i class="tri"></i><i class="right_line"></i></a>
+                        <ul class="togul">
+                            <li><a href="">餐饮代理商招募</a></li>
+                            <li><a href="">非餐饮代理商招募</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="toga">更多<i class="tri"></i></a>
+                        <ul class="togul">
+                            <li><a href="">手机版</a></li>
+                            <li><a href="">邮件订阅</a></li>
+                            <li><a href="">邀请好友</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="logo">
+        <div class="logobox fl">
+            <img class="logoimg fl" src="images/3df525af5a3f7fe04077567d2a6caf794904.png" />
+            <div class="fl">
+                <h1>北京</h1>
+                <span>切换城市</span>
+            </div>
+        </div>
+
+        <div class="searchbox fl">
+            <form action="">
+                <div class="fl">团购</div>
+                <input class="fl" type="text" placeholder="  请输入商品名称丶地址等" />
+                <button>搜索</button>
+            </form>
+            <ul>
+                <li><a href="#">虾吃虾涮</a></li>
+                <li><a href="#">比格</a></li>
+                <li><a href="#">味多美</a></li>
+                <li><a href="#">铁板烧</a></li>
+                <li><a href="#">烤肉</a></li>
+                <li><a href="#">东方饺子王</a></li>
+                <li><a href="#">东来顺</a></li>
+                <li><a href="#">好伦哥</a></li>
+                <li><a href="#">必胜客</a></li>
+                <li><a href="#">烤鱼</a></li>
+            </ul>
+        </div>
+        <div class="promise fr">
+            <a href="#"><img src="images/QQ截图20170707184816.png" /><span>随时退</span></a>
+            <a href="#"><img src="images/QQ截图20170707191749.png" class="ml10" /><span>不满意免单</span></a>
+            <a href="#"><img src="images/QQ截图20170707184901.png" /><span>过期退</span></a>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="navbox">
+            <div class="fl hidebox">
+                <h2 class="fl">全部分类</h2>
+                <ul class="hidemenv">
+                    <li class="item ">
+                        <div class="level1">
+                            <a class="fl up" href="">美食</a>
+                            <span class="fr"><a href="#">自助餐</a><a href="#">代金券</a></span>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>美食</dt>
+                                <dd><a href="">代金券</a></dd>
+                                <dd><a href="">甜品饮料</a></dd>
+                                <dd><a href="">火锅</a></dd>
+                                <dd><a href="">自助餐</a></dd>
+                                <dd><a href="">小吃快餐</a></dd>
+                                <dd><a href="">日韩料理</a></dd>
+                                <dd><a href="">西餐</a></dd>
+                                <dd><a href="">餐具宴请</a></dd>
+                                <dd><a href="">烧烤烤肉</a></dd>
+                                <dd><a href="">东北菜</a></dd>
+                                <dd><a href="">川湘菜</a></dd>
+                                <dd><a href="">江浙菜</a></dd>
+                                <dd><a href="">香锅烤鱼</a></dd>
+                                <dd><a href="">粤港菜</a></dd>
+                                <dd><a href="">中式烧烤/烤串</a></dd>
+                                <dd><a href="">西北菜</a></dd>
+                            </dl>
+                            <dl>
+                                <dd><a href="">咖啡酒吧酒馆</a></dd>
+                                <dd><a href="">云贵菜</a></dd>
+                                <dd><a href="">东南亚菜</a></dd>
+                                <dd><a href="">海鲜</a></dd>
+                                <dd><a href="">素食</a></dd>
+                                <dd><a href="">台湾/客家菜</a></dd>
+                                <dd><a href="">创意菜</a></dd>
+                                <dd><a href="">汤/粥/炖菜</a></dd>
+                                <dd><a href="">蒙餐</a></dd>
+                                <dd><a href="">新疆菜</a></dd>
+                                <dd><a href="">其它美食</a></dd>
+                                <dd><a href="">京菜鲁菜</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="level1">
+                            <a class="fl up" href="">酒店/客栈</a>
+                            <span class="fr"><a href="#">经济型酒店</a></span>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>酒店</dt>
+                                <dd><a href="">经济型酒店</a></dd>
+                                <dd><a href="">豪华酒店</a></dd>
+                                <dd><a href="">主题酒店</a></dd>
+                                <dd><a href="">度假酒店/度假村</a></dd>
+                                <dd><a href="">公寓型酒店</a></dd>
+                                <dd><a href="">客栈</a></dd>
+                                <dd><a href="">青年旅社</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item ">
+                        <div class="level1">
+                            <a class="fl up" href="">猫眼电影/在线选座</a>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>当前热映</dt>
+                                <dd><a href="">神偷奶爸3</a></dd>
+                                <dd><a href="">悟空传</a></dd>
+                                <dd><a href="">京城81号II</a></dd>
+                                <dd><a href="">绝世高手</a></dd>
+                                <dd><a href="">变形金刚5：最后...</a></dd>
+                                <dd><a href="">冈仁波齐</a></dd>
+                                <dd><a href="">大护法</a></dd>
+                                <dd><a href="">青禾难高</a></dd>
+                                <dd><a href="">逆时营救</a></dd>
+                                <dd><a href="">与君相恋100次</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>热门影院</dt>
+                                <dd><a href="">星美国际影城</a></dd>
+                                <dd><a href="">首都电影院</a></dd>
+                                <dd><a href="">美嘉欢乐影城</a></dd>
+                                <dd><a href="">万达影城</a></dd>
+                                <dd><a href="">华影国际影城</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item ">
+                        <div class="level1">
+                            <a class="fl up" href="">KTV</a>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>当前热映</dt>
+                                <dd><a href="">神偷奶爸3</a></dd>
+                                <dd><a href="">悟空传</a></dd>
+                                <dd><a href="">京城81号II</a></dd>
+                                <dd><a href="">绝世高手</a></dd>
+                                <dd><a href="">变形金刚5：最后...</a></dd>
+                                <dd><a href="">冈仁波齐</a></dd>
+                                <dd><a href="">大护法</a></dd>
+                                <dd><a href="">青禾难高</a></dd>
+                                <dd><a href="">逆时营救</a></dd>
+                                <dd><a href="">与君相恋100次</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>热门影院</dt>
+                                <dd><a href="">星美国际影城</a></dd>
+                                <dd><a href="">首都电影院</a></dd>
+                                <dd><a href="">美嘉欢乐影城</a></dd>
+                                <dd><a href="">万达影城</a></dd>
+                                <dd><a href="">华影国际影城</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item ">
+                        <div class="level1 ">
+                            <a class="fl up" href="">休闲娱乐</a>
+                            <span class="fr"><a href="#">足疗按摩</a><a href="#">温泉</a></span>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>休闲娱乐</dt>
+                                <dd><a href="">KTV</a></dd>
+                                <dd><a href="">更多休闲娱乐</a></dd>
+                                <dd><a href="">演出赛事</a></dd>
+                                <dd><a href="">电玩/游戏厅</a></dd>
+                                <dd><a href="">运动健身</a></dd>
+                                <dd><a href="">私人影院</a></dd>
+                                <dd><a href="">足疗按摩</a></dd>
+                                <dd><a href="">洗浴/汗蒸</a></dd>
+                                <dd><a href="">中医养生</a></dd>
+                                <dd><a href="">茶馆</a></dd>
+                                <dd><a href="">桌游</a></dd>
+                                <dd><a href="">轰趴馆</a></dd>
+                                <dd><a href="">温泉</a></dd>
+                                <dd><a href="">DIY手工坊</a></dd>
+                                <dd><a href="">采摘/农家乐</a></dd>
+                            </dl>
+                            <dl>
+                                <dd><a href="">密室逃脱</a></dd>
+                                <dd><a href="">酒吧</a></dd>
+                                <dd><a href="">真人CS</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                                <dd><a href="">&nbsp;</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="level1">
+                            <a class="fl up" href="">周边游/旅游</a>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>周边游</dt>
+                                <dd><a href="">景点</a></dd>
+                                <dd><a href="">温泉</a></dd>
+                                <dd><a href="">主题公园</a></dd>
+                                <dd><a href="">展览馆</a></dd>
+                                <dd><a href="">农家乐</a></dd>
+                                <dd><a href="">水上乐园</a></dd>
+                                <dd><a href="">动植物园</a></dd>
+                                <dd><a href="">海洋馆</a></dd>
+                                <dd><a href="">游船</a></dd>
+                                <dd><a href="">高空观景</a></dd>
+                                <dd><a href="">真人CS</a></dd>
+                                <dd><a href="">单车出租</a></dd>
+                                <dd><a href="">漂流</a></dd>
+                                <dd><a href="">其他游玩</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item ">
+                        <div class="level1">
+                            <a class="fl up" href="">机票</a>
+                            <span class="fr"><a href="#">国内机票</a><a href="#">国际机票</a></span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="level1">
+                            <a class="fl up" href="">生活服务</a>
+                            <span class="fr"><a href="#">婚纱摄影</a><a href="#">个性写真</a></span>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>生活服务</dt>
+                                <dd><a href="">婚纱摄影</a></dd>
+                                <dd><a href="">个性写真</a></dd>
+                                <dd><a href="">亲子摄影</a></dd>
+                                <dd><a href="">其他摄影</a></dd>
+                                <dd><a href="">培训课程</a></dd>
+                                <dd><a href="">其他生活</a></dd>
+                                <dd><a href="">汽车服务</a></dd>
+                                <dd><a href="">体检/齿科</a></dd>
+                                <dd><a href="">衣物/皮具洗护</a></dd>
+                                <dd><a href="">鲜花</a></dd>
+                                <dd><a href="">母婴亲子</a></dd>
+                                <dd><a href="">配镜</a></dd>
+                                <dd><a href="">照片冲印</a></dd>
+                                <dd><a href="">商场购物卡</a></dd>
+                                <dd><a href="">服饰鞋包</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="item ">
+                        <div class="level1" style="border-bottom:none;">
+                            <a class="fl up" href="">丽人</a>
+                            <span class="fr"><a href="#">美发</a><a href="#">美甲美睫</a></span>
+                        </div>
+                        <div class="level2">
+                            <dl>
+                                <dt>丽人</dt>
+                                <dd><a href="">美发</a></dd>
+                                <dd><a href="">美容美体</a></dd>
+                                <dd><a href="">美甲美睫</a></dd>
+                                <dd><a href="">瑜伽舞蹈</a></dd>
+                                <dd><a href="">瘦身纤体</a></dd>
+                                <dd><a href="">韩式定妆</a></dd>
+                                <dd><a href="">祛痘</a></dd>
+                                <dd><a href="">纹身</a></dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul class="fl select">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">今日新单</a></li>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">身边外卖</a></li>
+            </ul>
+        </div>
+        <div class="navright">
+            <div class="list-l fl">
+                <div class="content">
+                    <div class="t">
+                        <h3 class="lable fl">热门团购<i class="T-glob"><img src="images/QQ截图20170723203307.png"></i></h3>
+                        <ul class="slect fl">
+                            <li><a href="#">自助餐</a></li>
+                            <li><a href="#">火锅</a></li>
+                            <li><a href="#">小吃快餐</a></li>
+                            <li><a href="#">烧烤烤肉</a></li>
+                            <li><a href="#">西餐</a></li>
+                            <li><a href="#">日韩料理</a></li>
+                            <li><a href="#">甜点饮品</a></li>
+                            <li><a href="#">香锅烤鱼</a></li>
+                            <li><a href="#">海鲜</a></li>
+                        </ul>
+                    </div>
+                    <div class="m">
+                        <h3 class="lable fl">全部区域<i class="M-glob"><img src="images/QQ截图20170723203318.png" /></i></h3>
+                        <ul class="slect fl">
+                            <li><a href="#">朝阳区 </a></li>
+                            <li><a href="#">海淀区</a></li>
+                            <li><a href="#">丰台区</a></li>
+                            <li><a href="#">西城区</a></li>
+                            <li><a href="#">东城区</a></li>
+                            <li><a href="#"> 昌平区</a></li>
+                            <li><a href="#">石景山区</a></li>
+                            <li><a href="#">通州区</a></li>
+                            <li><a href="#">大兴区</a></li>
+                        </ul>
+                    </div>
+                    <div class="b">
+                        <h3 class="lable fl">热门团购<i class="B-glob"><img src="images/QQ截图20170723203334.png" /></i></h3>
+                        <ul class="slect fl">
+                            <li><a href="#">热门商圈</a></li>
+                            <li><a href="#">望京</a></li>
+                            <li><a href="#">昌平镇</a></li>
+                            <li><a href="#">亦庄</a></li>
+                            <li><a href="#">中关村</a></li>
+                            <li><a href="#">远大路</a></li>
+                            <li><a href="#">西红门</a></li>
+                            <li><a href="#">双井</a></li>
+                            <li><a href="#">大望路</a></li>
+                            <li><a href="#">黄村 </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="choice">
+                    <a href="#" class="arrL"></a>
+                    <a href="#" class="arrR">
+                        <div>
+                            <span class="count">1</span>
+                            <span>/5</span>
+                        </div>
+                    </a>
+                    <ul>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/91b3517c6cab016fb71a23b98fb56acf56588.jpg@0_6_640_387a-388h_640w_2e_100q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">南京大排档</strong></a>
+                                    <p>100元代金券1张，可叠加使用，可免费使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥65							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/d66769fc41390f58463ad3ea0f36e32f292393 (1).jpg@32_0_824_500a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">大鸭梨烤鸭店</strong></a>
+                                    <p>100元代金券1张，可叠加使用，可免费使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥92							</span> </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/bb1f679bbd624aea5f20dfe90875c1c643869.jpg@0_6_639_387a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">南小馆</strong></a>
+                                    <p>100元代金券1张，可叠加使用，可免费使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥82							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/fc60a41598dee750387dfe6fee74f1bf404372 (1).jpg@0_0_2667_1616a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">川成元麻辣香锅</strong></a>
+                                    <p>柠檬天空冰茶1杯</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥7							</span> </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/aa2c2c48e7230490a285d8494541050988828.jpg@0_54_1000_606a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">韩式烤肉</strong></a>
+                                    <p>50元韩时新客代金券1张，全场通用，可使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥89							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/__30530472__9152813 (1).jpg" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">豆捞坊</strong></a>
+                                    <p>100元代金券一张，全场通用，可叠加使用</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥88							</span> </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/__47211929__5159719.jpg@0_53_267_161a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">韩式烤肉</strong></a>
+                                    <p>50元韩时新客代金券1张，全场通用，可使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥99							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/b14653bd0970153ad64a19a39ba234fa18411.jpg@0_6_640_387a-388h_640w_2e_100Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">眉州东坡酒楼</strong></a>
+                                    <p>100元代金券一张，全场通用，可叠加使用</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥95							</span> </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/36025722d39b00dfe8dd0d6d99e10228100722.jpg@10_0_659_400a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">Salud</strong></a>
+                                    <p>冻酸奶（滋味杯）1杯，提供免费WiFi</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥77							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/9324298b7bc6d9a17307e624309b7a40142712.jpg@224_0_1030_625a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">小城渔家</strong></a>
+                                    <p>100元代金券一张，全场通用，可叠加使用</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥80</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <a href="#"><img src="images/91b3517c6cab016fb71a23b98fb56acf56588.jpg@0_6_640_387a-388h_640w_2e_100q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">南京大排档</strong></a>
+                                    <p>100元代金券1张，可叠加使用，可免费使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥65							</span> </div>
+                            <div>
+                                <a href="#"><img src="images/d66769fc41390f58463ad3ea0f36e32f292393 (1).jpg@32_0_824_500a-388h_640w_2e_90Q" /></a>
+                                <div class="title-link fl">
+                                    <a href="#"><strong style="font-size:14px">大鸭梨烤鸭店</strong></a>
+                                    <p>100元代金券1张，可叠加使用，可免费使用包间</p>
+                                </div>
+                                <span class="price fr">
+                                    ￥92</span>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-r fl">
+                <div class="mt"></div>
+                <div class="mb">
+                    <a href="#">
+                        <h1 class="day">每日上新</h1>
+                        <p class="fun">吃喝玩乐最低价</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/Carousel figure.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>

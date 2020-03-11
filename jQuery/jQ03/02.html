@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    省：<select id="sheng">
+        <option value="">请选择</option>
+    </select> 市：
+    <select id="shi"><option value="">请选择</option></select> 区：
+    <select id="qu"><option value="">请选择</option></select>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        var data = {
+            '山西省': {
+                '太原市': ['小店区', '万柏林区', '迎泽区', '长风区'],
+                '朔州市': ['朔城区', '平鲁区', '山阴县', '右玉县']
+            },
+            '河北省': {
+                '石家庄': ["长安区", "桥东区", "桥西区", "新华区"],
+                '保定': ["新市区", "北市区", "南市区", "满城县"]
+            },
+            '河南省': {
+                '洛阳市': ["东城区", "西城区", "崇文区", "宣武区"]
+            },
+
+        }
+        $.each(data, function(x) {
+            $('#sheng').append('<option>' + x + '</option>')
+        })
+        $('#sheng').change(function() {
+            $('#shi').html('<option value="">请选择</option>')
+            var sheng = $(this).val()
+            if (sheng) {
+                $.each(data[sheng], function(y) {
+                    $('#shi').append('<option>' + y + '</option>')
+                })
+            }
+
+        })
+        $('#shi').change(function() {
+            $('#qu').html('<option value="">请选择</option>')
+            $.each(data[$('#sheng').val()], function(i, qu) {
+                if (i == $('#shi').val()) {
+                    $.each(qu, function(i, z) {
+                        $('#qu').append('<option>' + z + '</option>')
+
+                    })
+                }
+
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

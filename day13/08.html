@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1. 注册时，用户名和密码为空不得注册
+        2. 注册时， 用户名重复不得注册
+        3. 登录时，用户名和密码为空不得登录
+        4. 登录时，用户名和密码不匹配不得登录
+     -->
+    <h1>注册：</h1>
+    <p>
+        用户名： <input type="text" id="user" value="1" placeholder="请输入用户名">
+    </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;码： <input id='pwd' value="1" type="password" placeholder='请输入密码'>
+    </p>
+    <button id="register">点击注册</button>
+    <hr>
+    <h1>登录：</h1>
+    <p>
+        用户名： <input type="text" id="loginUser" value="1" placeholder="请输入用户名">
+    </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;码： <input id='loginPwd' value="1" type="password" placeholder='请输入密码'>
+    </p>
+    <button id="login">点击登录</button>
+    <script>
+        /*
+                    cookie   存放的  时候  key:用户名    value:密码  key=value
+                
+                */
+
+        var register = document.getElementById('register')
+        var user = document.getElementById('user')
+        var pwd = document.getElementById('pwd')
+
+
+        var login = document.getElementById('login')
+        var loginUser = document.getElementById('loginUser')
+        var loginPwd = document.getElementById('loginPwd')
+        register.onclick = function() {
+            if (user.value && pwd.value) {
+                // 进行注册
+
+                var currentCookie = document.cookie
+                    // currentCookie     '123=123; 1=1'   
+                    // 处理cookie第一步： 通过 ;  将其分割称为  数组  数组的每一个数据 就是一个用户名和密码  格式 x=y
+                var arr = currentCookie.split(';')
+                    // console.log(arr)  // 分割结束后  ["123=123", " 1=1"]   发现除了第一个以后的字符串 前面都有一个空格 需要去除空格
+
+                // var str = ' 123 '
+                // str = str.trim()
+
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i] = arr[i].trim()
+                        // console.log(arr[i])
+                        // 我们需要拿的是  = 前面的用户名  用这个用户名 和 user.value 进行比较   如果不重复  代表可以注册
+                        // 怎么获取=前面的用户名？
+                        // 把数组的每一项 通过等号 分割成 数组  [['123','123'],['1','1']]
+
+                    arr[i] = arr[i].split('=')
+                        // console.log(arr[i][0])  就是cookie的key值
+
+                    if (arr[i][0] == user.value) {
+                        alert('当前用户名已经被注册了')
+                        return
+                    } else if (i == arr.length - 1) {
+                        document.cookie = user.value + '=' + pwd.value
+                        alert('注册成功')
+
+                    }
+
+                }
+
+
+            } else {
+                alert('用户名和密码不得为空')
+            }
+        }
+
+
+        login.onclick = function() {
+            if (loginUser.value && loginPwd.value) {
+                var currentCookie = document.cookie
+                var arr = currentCookie.split(';')
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i] = arr[i].trim()
+                    arr[i] = arr[i].split('=')
+                    if (arr[i][0] == loginUser.value) {
+                        if (arr[i][0] == loginUser.value && arr[i][1] == loginPwd.value) {
+                            alert('登录成功')
+                            return
+                        } else if (i == arr.length - 1) {
+                            alert('用户名和密码不匹配')
+                        }
+                        return
+                    } else if (i == arr.length - 1) {
+
+                        alert('当前用户名尚未注册')
+
+                    }
+
+                }
+
+
+            } else {
+                alert('登录时用户名和密码不得为空')
+            }
+        }
+    </script>
+</body>
+
+</html>

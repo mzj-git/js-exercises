@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // BOM   cookie   拖拽
+        /*
+            BOM 浏览器对象模型   js通过BOM 操作浏览器    打开新的网页  弹窗
+
+            // 定时器
+            setInterval()  每隔xx时间就执行一次   循环执行
+            setTimeout()    xx时间以后执行一次   只执行一次
+            // 取消
+            clearInterval()
+            clearTimeout()
+
+
+            window     document    cookie  
+
+            document.cookie  获取cookie  (所有的cookie 一整个字符串)
+            document.cookie = 'x=y'    赋值cookie
+
+            // 想要使用事件对象   在形参里面要定一个形参 e   表示是当前事件的事件对象
+            进行浏览器兼容处理   var  e = e || window.event      
+            e.target     e.clientX    e.clientY  
+            div.onmousedown = function(e){
+            }
+            元素自身的宽和高  包含边框
+            offsetWidth   offsetHeight   
+            元素距离浏览器的间距
+            offsetLeft   offsetTop
+        */
+
+       
+
+        // for (var i=0;i<5;i++) {    
+        // // 循环里面的 i 是0 1 2 3 4 
+        // //  循环结束 的i  不是4  是5   判断  i<5  条件不符合了   循环结束
+        //     setTimeout(function(){
+        //         console.log(i) //  5个5    三秒以后全部console.log()
+        //     },3000)
+        // }
+        
+
+        //  开始条件  符合循环的条件  改变的条件
+        // 从0开始  如果小于5 执行代码   执行完毕后  i加1
+        // 0 1 2 3 4   i=5
+        // for (var i=0;i<5;i++) {
+            // setTimeout()  这里是定时器   3S以后触发   界面一加载  for循环执行完毕  i=5   3s以后去拿i
+            // setTimeout(function(){
+                // console.log(i)
+            // },3000)
+        // }
+        // console.log('for循环结束的i='+i)
+
+
+        // bom(弹框)   日期对象  轮播图
+
+
+    </script>
+</body>
+</html>

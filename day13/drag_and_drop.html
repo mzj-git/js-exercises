@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.getElementsByTagName('div')[0]
+        div.onmousedown = function(e) {
+            // console.log(this.offsetHeight,this.offsetLeft, this.offsetTop,this.offsetWidth)
+
+            /*
+                条件1： 
+                    div距离浏览器的间距     this.offsetLeft   this.offsetTop
+            
+            */
+            var e = e || window.event
+                // console.log(e.clientX,e.clientY)
+                /*
+                    条件2：
+                        鼠标距离浏览器的间距    e.clientX   e.clientY
+                */
+            var l = e.clientX - this.offsetLeft
+            var t = e.clientY - this.offsetTop
+
+
+            document.documentElement.onmousemove = function(e) {
+                var e = e || window.event
+                    // e.clientX,l
+                div.style.left = e.clientX - l + 'px'
+                div.style.top = e.clientY - t + 'px'
+            }
+            document.documentElement.onmouseup = function() {
+                document.documentElement.onmousemove = null
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

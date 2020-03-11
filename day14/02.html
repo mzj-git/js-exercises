@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // BOM 弹框
+
+        // alert()  // 没有操作  确定按钮   注意alert触发以后   进程停止的   点击确定后    进程继续
+        // console.log('我是console')
+
+
+        // window.alert()
+
+
+        // window.confirm()  // 有确定按钮和取消按钮  可以拿到用户的点击结果
+        // var result = window.confirm('你是猪吗？')  // 返回值就是它的结果
+        // console.log(result)
+
+
+        // var result = window.prompt('请输入用户名')
+        // 点击确定按钮后      返回值为  用户的输入内容
+        // 点击取消后，  返回值为null
+        // console.log(result)
+
+
+        var user = prompt('请输入你的用户名')
+
+        function fn() {
+            if (user) {
+                var result = confirm('您输入的用户名为' + user)
+                if (result) {
+                    alert('欢迎光临')
+                } else {
+                    user = prompt('请重新输入你的用户名')
+                    fn()
+                }
+            } else {
+                alert('用户名不得为空')
+                user = prompt('请输入你的用户名')
+                fn()
+            }
+        }
+        fn()
+    </script>
+</body>
+
+</html>

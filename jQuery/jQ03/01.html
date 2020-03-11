@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            float: left;
+            border: 2px white solid;
+        }
+    </style>
+</head>
+
+<body>
+    <p>标签1</p>
+    <p class="one">标签2</p>
+    <p>标签3</p>
+    <button>chick me!</button>
+    <div></div>
+
+    <div class="middle"></div>
+    <div class="middle"></div>
+    <div class="middle"></div>
+    <div class="middle"></div>
+
+    <div></div>
+    <form><input type="checkbox" /></form>
+    <p><b>Values: </b></p>
+    <form>
+        <input type="text" name="name" value="John" />
+        <input type="text" name="password" value="password" />
+        <input type="text" name="url" value="http://w3school.com.cn/" />
+
+    </form>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        // console.log($('p').eq(1))
+        // console.log($('p').eq(-1))
+
+        //$('button').click(function() {
+        //   alert($('p').first().html())
+        //})
+
+        //$('button').click(function() {
+        //   alert($('p').last().html())
+        //})
+
+        //$('button').click(function() {
+        //   alert($('p').hasClass('one'))//true
+        //})
+        //$("div").css("background", "#c8ebcc")
+        //    .filter(".middle")
+        //  .css("border-color", "red");
+        //$('button').click(function() {
+        //  alert($("input[type='checkbox']").parent().is("form"))
+        // })
+        $("p").append($("input").map(function() {
+            return $(this).val();
+        }).get().join(", "));
+    </script>
+
+</body>
+
+</html>
