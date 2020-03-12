@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 1280px;
+    height: 100%;
+    position: relative;
+}
+
+img {
+    border: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/*版心*/
+
+.layout {
+    width: 1200px;
+    margin: 0 auto;
+}
