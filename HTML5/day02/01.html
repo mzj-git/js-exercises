@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <video src="/Users/mzs/Documents/web/HTML5/day02/src/movie.mp4" controls></video>
+    <button onclick="play()">点击播放</button>
+    <button onclick="pause()">点击暂停</button>
+    <button onclick="kuaijin()">点击快进</button>
+    <button onclick="muted()">点击静音</button>
+    <button onclick="jiasu()">点击加速</button>
+    <button onclick="jianxiao()">减小音量</button>
+    <button onclick="xunhuanplay()">循环播放</button>
+    <script>
+        var video = document.getElementsByTagName('video')[0]
+
+        function play() {
+            video.controls = true //显示控件
+            video.play() //播放 方法
+            console.log(video.currentSrc) //播放地址
+            console.log(video.duration) //播放总时长
+            setInterval(function() {
+                console.log(video.currentTime) //播放时间
+            }, 3000)
+        }
+
+        function pause() {
+            video.pause() //暂停 方法
+            console.log(video.paused) //返回当前暂停的时间🔙
+        }
+
+        function kuaijin() {
+            video.currentTime += 2 //加速
+        }
+
+        function muted() {
+            video.muted = true //静音
+        }
+
+        function jiasu() { //加倍数
+            video.playbackRate++
+        }
+
+        function jianxiao() { //控制音量
+            if (video.volume >= 0.2) {
+                video.volume -= 0.2
+            }
+            console.log(video.volume)
+        }
+
+        function xunhuanplay() { //循环播放
+            video.loop = true
+        }
+    </script>
+</body>
+
+</html>

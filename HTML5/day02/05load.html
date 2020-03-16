@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>注册：</h1>
+    <p>
+        用户名： <input type="text" id="user" placeholder="请输入用户名">
+    </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;码： <input id='pwd' type="password" placeholder='请输入密码'>
+    </p>
+    <button id="register">点击注册</button>
+    <hr>
+    <h1>登录：</h1>
+    <p>
+        用户名： <input type="text" id="loginUser" value="1" placeholder="请输入用户名">
+    </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;码： <input id='loginPwd' value="1" type="password" placeholder='请输入密码'>
+    </p>
+    <button id="login">点击登录</button>
+    <script>
+        var register = document.getElementById('register')
+        var user = document.getElementById('user')
+        var pwd = document.getElementById('pwd')
+
+
+        var login = document.getElementById('login')
+        var loginUser = document.getElementById('loginUser')
+        var loginPwd = document.getElementById('loginPwd')
+            /*
+      存放的  时候  key:用户名    value:密码                                                        
+        */
+        register.onclick = function() {
+            var data = {
+                User: user.stringify(),
+                Pwd: pwd.stringify()
+            }
+            sessionStorage.setItem('data', JSON.stringify(data))
+
+            if (user == " ") {
+                alert('不得为空')
+            } else {
+                if (sessionStorage.getItem('User') == user) {
+                    alert('当前用户名已经被注册了')
+                    return
+                } else {
+                    alert('注册成功')
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var userEntity = {
+            name: 'tom',
+            age: 22
+        };
+        // 存储值：将对象转换为Json字符串
+        sessionStorage.setItem('user', JSON.stringify(userEntity));
+        // 取值时：把获取到的Json字符串转换回对象
+        var userJsonStr = sessionStorage.getItem('user');
+        userEntity = JSON.parse(userJsonStr);
+        console.log(userEntity.name); // => tom
+    </script>
+
+</body>
+
+</html>

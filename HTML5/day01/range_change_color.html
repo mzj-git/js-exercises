@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .color {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<input type="color" id="color" onchange=" changecolor()">
+<div class="color" onchange="changecolor() ">
+
+</div>
+<script>
+    function changecolor() {
+        color.onchange = function() {
+
+            document.getElementsByTagName('div').color = color.value
+        }
+        return
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

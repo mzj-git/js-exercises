@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<button class="add">增加</button>
+<button class="get">得到</button>
+<button class="clear">清除</button>
+
+<body>
+    <script>
+        //sessionStorage.setItem('sex', 'man')
+
+        // var btn1 = document.getElementsByClassName('add')[0]
+        //btn1.onclick = function() {
+        sessionStorage.setItem('name', 'mzj')
+            // }
+
+        var btn2 = document.getElementsByClassName('get')[0]
+        btn2.onclick = function() {
+            console.log(sessionStorage.getItem('key'))
+        }
+
+        //}
+        var btn3 = document.getElementsByClassName('clear')[0]
+        btn3.onclick = function() {
+            sessionStorage.clear()
+        }
+    </script>
+</body>
+
+</html>

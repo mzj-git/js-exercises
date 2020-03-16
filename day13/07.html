@@ -22,8 +22,8 @@
 
         // 存放形式  key:value   4KB   过期时间
 
-        // document.cookie = 'name=snail'
-        // document.cookie = 'age=18'
+        //document.cookie = 'name=snail'
+        //document.cookie = 'age=18'
 
 
         // 存放cookie 的时候    document.cookie = 'name=snail'
@@ -33,16 +33,16 @@
         // 没有过期的时候  是可以一直拿到  cookie  没有必要反复存储
 
 
-        // console.log(document.cookie)   // name=snail; age=18
+        //console.log(document.cookie) // name=snail; age=18
 
 
         //  用cookie模拟登录注册
 
-        // document.getElementsByTagName('button')[0].onclick = function(){
-        //     var user = document.getElementById('user').value
-        //     var pwd = document.getElementById('password').value
-        //     document.cookie = user+'='+pwd
-        // }
+        document.getElementsByTagName('button')[0].onclick = function() {
+            var user = document.getElementById('user').value
+            var pwd = document.getElementById('password').value
+            document.cookie = user + '=' + pwd
+        }
 
         // document.getElementsByTagName('button')[1].onclick = function(){
         //     var user = document.getElementById('loginUser').value

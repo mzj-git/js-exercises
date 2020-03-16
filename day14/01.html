@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // BOM   cookie   拖拽
@@ -35,7 +37,7 @@
             offsetLeft   offsetTop
         */
 
-       
+
 
         // for (var i=0;i<5;i++) {    
         // // 循环里面的 i 是0 1 2 3 4 
@@ -44,23 +46,29 @@
         //         console.log(i) //  5个5    三秒以后全部console.log()
         //     },3000)
         // }
-        
+
+        for (var i = 0; i < 5; i++) {
+            // // 循环里面的 i 是0 1 2 3 4 
+            // //  循环结束 的i  不是4  是5   判断  i<5  条件不符合了   循环结束
+            setTimeout(function() {
+                console.log(i) //  5个5    三秒以后全部console.log()
+            }, 3000)
+        }
 
         //  开始条件  符合循环的条件  改变的条件
         // 从0开始  如果小于5 执行代码   执行完毕后  i加1
         // 0 1 2 3 4   i=5
         // for (var i=0;i<5;i++) {
-            // setTimeout()  这里是定时器   3S以后触发   界面一加载  for循环执行完毕  i=5   3s以后去拿i
-            // setTimeout(function(){
-                // console.log(i)
-            // },3000)
+        // setTimeout()  这里是定时器   3S以后触发   界面一加载  for循环执行完毕  i=5   3s以后去拿i
+        // setTimeout(function(){
+        // console.log(i)
+        // },3000)
         // }
         // console.log('for循环结束的i='+i)
 
 
         // bom(弹框)   日期对象  轮播图
-
-
     </script>
 </body>
+
 </html>

@@ -24,49 +24,34 @@
         <li>吃饭<button class="del"> 删除</button></li>
     </ul>
     <script>
-        var btn = document.getElementsByTagName('button')[0]
-        var ipt = document.getElementsByTagName('input')[0]
-        var ul = document.getElementsByTagName('ul')[0]
-
-        btn.onclick = function() {
-            if (ipt.value == '') {
-                alert('添加内容不得为空')
-                return
+        var del = document.getElementsByClassName("del");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
             }
-            var lis = ul.getElementsByTagName('li')
-            var length = lis.length
-            for (var i = 0; i < length; i++) {
-                if (lis[i].innerHTML == ipt.value) {
-                    alert('重复，不得添加')
-                    break
-                } else if (i == lis.length - 1) {
-                    var li = document.createElement('li')
-                    li.innerHTML = ipt.value + '<button   class="del"> 删除</button>'
-                    ul.appendChild(li)
-                    ipt.value = ''
-                    del = document.getElementsByClassName('del')
-                }
-            }
+        }
 
 
 
 
 
-            //
+        //
 
-            // var dels = document.getElementsByClassName('del')
+        // var dels = document.getElementsByClassName('del')
 
-            //  for (var i = 0; i < dels.length; i++) {
-            // dels[i].index = i
+        //  for (var i = 0; i < dels.length; i++) {
+        // dels[i].index = i
 
-            //dels[i].onclick = function() {
-
-
-            //  ul.removeChild(this.parentElement)
+        //dels[i].onclick = function() {
 
 
-            // }
-            // }
+        //  ul.removeChild(this.parentElement)
+
+
+        // }
+        // }
         }
     </script>
 </body>

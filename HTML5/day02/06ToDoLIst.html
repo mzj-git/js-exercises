@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .top {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+        
+        .top>h2 {
+            text-align: center;
+        }
+        
+        .top>input {
+            margin-left: 15px;
+        }
+        
+        ul {
+            background-color: gray;
+            width: 160px;
+        }
+        
+        li:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <h2>To do list</h2>
+        <input type="text"><button class="add">添加</button>
+    </div>
+
+    <ul class="bottom">
+        <li>起床<button class="del">删除</button></li>
+        <li>洗漱<button class="del">删除</button></li>
+        <li>吃饭<button class="del">删除</button></li>
+    </ul>
+    <script>
+        //del
+        function del() {
+            var del = document.getElementsByClassName('del')
+
+
+
+            for (var i = 0; i < del.length; i++) {
+                del[i].onclick = function() {
+
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+
+            }
+        }
+        //add
+
+        var add = document.getElementsByTagName('button')[0]
+        var ipt = document.getElementsByTagName('input')[0]
+        var ul = document.getElementsByTagName('ul')[0]
+        del()
+        add.onclick = function() {
+            if (ipt.value == '') {
+                alert('添加内容不得为空')
+                return
+            }
+            var lis = ul.getElementsByTagName('li')
+            var length = lis.length
+            for (var i = 0; i < length; i++) {
+                if (lis[i].innerHTML == ipt.value) {
+                    alert('重复，不得添加')
+                    break
+                } else if (i == lis.length - 1) {
+                    var li = document.createElement('li')
+                    li.innerHTML = ipt.value + '<button   class="del"> 删除</button>'
+                    ul.appendChild(li)
+                    ipt.value = ''
+                    del()
+
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
