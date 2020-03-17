@@ -74,8 +74,10 @@
             var lis = ul.getElementsByTagName('li')
             var length = lis.length
             for (var i = 0; i < length; i++) {
-                if (lis[i].innerHTML == ipt.value) {
+
+                if (ipt.value == lis[i].innerHTML) {
                     alert('重复，不得添加')
+                    ipt.value = ''
                     break
                 } else if (i == lis.length - 1) {
                     var li = document.createElement('li')

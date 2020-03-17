@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>全部商品</h1>
+    <hr>
+    <table id="cartTable">
+        <tr class="order_content">
+            <td class="check"><input type="checkbox" class="check_all check">全选</td>
+            <td>商品名称</td>
+            <td>单价</td>
+            <td>数量</td>
+            <td>金额</td>
+            <td>操作</td>
+
+        </tr>
+
+        <tr class="order_content">
+            <th class="check"><input type="checkbox"></th>
+            <th>游戏机</th>
+            <th class="money1">￥200</th>
+            <th><button>-</button>
+                <input type="text" value="1">
+                <button class="add">+</button></th>
+            <th><span>￥200</span></th>
+            <th><button>删除</button></th>
+        </tr>
+        <tr class="order_content">
+            <th class="check"><input type="checkbox"></th>
+            <th>手机</th>
+            <th class="money1">￥2200</th>
+            <th><button>-</button>
+                <input type="text" value="1">
+                <button class="add">+</button></th>
+            <th><span>￥2200</span></th>
+            <th><button>删除</button></th>
+        </tr>
+        <tr class="order_content">
+            <th><input type="checkbox"></th>
+            <th>学习机</th>
+            <th class="money1">￥1230</th>
+            <th><button>-</button>
+                <input type="text" value="1">
+                <button class="add">+</button></th>
+            <th><span>￥1230</span></th>
+            <th><button>删除</button></th>
+        </tr>
+
+    </table>
+    <hr>
+
+    <div>
+        <input class="check_all check" type="checkbox"> 全选
+        <button>清空购物车</button> 合计：￥ <span id="priceTotle">0.00</span> 已购商品:<span id="selectTotle">0</span>件
+
+    </div>
+
+
+    </div>
+    <script>
+    </script>
+
+
+</body>
+
+</html>

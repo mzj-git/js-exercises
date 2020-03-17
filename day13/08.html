@@ -33,14 +33,12 @@
     <button id="login">点击登录</button>
     <script>
         /*
-                                                                    cookie   存放的  时候  key:用户名    value:密码  key=value
-                                                                
-                                                                */
+         cookie   存放的  时候  key:用户名    value:密码  key=value                                                       
+        */
 
         var register = document.getElementById('register')
         var user = document.getElementById('user')
         var pwd = document.getElementById('pwd')
-
 
         var login = document.getElementById('login')
         var loginUser = document.getElementById('loginUser')
@@ -48,13 +46,11 @@
         register.onclick = function() {
             if (user.value && pwd.value) {
                 // 进行注册
-
                 var currentCookie = document.cookie
                     // currentCookie     '123=123; 1=1'   
                     // 处理cookie第一步： 通过 ;  将其分割称为  数组  数组的每一个数据 就是一个用户名和密码  格式 x=y
                 var arr = currentCookie.split(';')
                     // console.log(arr)  // 分割结束后  ["123=123", " 1=1"]   发现除了第一个以后的字符串 前面都有一个空格 需要去除空格
-
                 // var str = ' 123 '
                 // str = str.trim()
 
