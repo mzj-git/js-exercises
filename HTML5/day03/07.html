@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 600px;
+            height: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"> </div>
+    <script>
+        var oDiv = document.getElementById('box')
+        oDiv.ondragover = function(e) {
+            console.log(1)
+            e.preventDefault(); //阻止浏览器默认行为
+        }
+        oDiv.ondrop = function(e) {
+            e.preventDefault(); //防止在窗口打开图片
+            //console.log(e.dataTransfer)//文件列表
+            var fr = new FileReader()
+            fr.readAsDataURL(e.dataTransfer.files[0])
+
+
+            //文件读取完毕后触发
+            fr.onload = function() {
+
+                var img = document.createElement('img')
+                img.src = fr.result
+
+                oDiv.appendChild(img)
+            }
+        }
+    </script>
+</body>
+
+</html>

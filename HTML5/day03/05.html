@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            width: 20px;
+            background-color: red;
+        }
+        
+        div {
+            height: 400px;
+            width: 400px;
+            text-align: center;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <p draggable="true">哈哈哈</p>
+    <div class="box"></div>
+    <img id="img" src="/Users/mzs/Documents/web/HTML5/day03/img/下载 (1).jpeg" alt="" srcset="">
+    <script>
+        var obj = {
+            name: 'mzj'
+        }
+        var p = document.getElementsByTagName('p')[0]
+        var box = document.getElementsByClassName('box')[0]
+
+        p.ondragstart = function(e) {
+                //console.log(e) //e指的是拖动的事件  这个事件有一个属性dataTransfer
+                e.dataTransfer.setDragImage(img, 10, 10) //后边俩个数值是相对于图片的鼠标箭头的位置
+                    //参数1：图片元素   参数2：x值  参数2：y值
+                console.log('开始拖动')
+                e.dataTransfer.setData('name', 'mzj') //只能传字符串
+
+            }
+            // p.ondrag = function() {
+            //     console.log('正在拖动')
+            //}
+            // p.ondragend = function() {
+            //   console.log('拖动结束')
+            // }
+        box.ondragenter = function() {
+            console.log('有拖动元素进来了')
+        }
+        box.ondragleave = function() {
+            console.log('拖动元素外出')
+        }
+        box.ondragover = function(e) {
+            e.preventDefault(); //阻止浏览器的默认行为
+            console.log('在目标元素上拖动')
+        }
+        box.ondrop = function(e) {
+                console.log(e.dataTransfer.getData('name', JSON.stringify(obj))) //只能传字符串
+                console.log(e) //也是拖动事件
+                console.log('在目标元素上结束拖拽')
+            } //必须在dragover阻止浏览器的默认行为才能触发
+    </script>
+</body>
+
+</html>

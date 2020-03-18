@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file">
+    <script>
+        var ipt = document.getElementsByTagName('input')
+            //console.log(ipt[0])
+
+        ipt[0].onchange = function() {
+            var fr = new FileReader()
+            fr.readAsText(this.files[0])
+            fr.onload = function() {
+                console.log(fr.result)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

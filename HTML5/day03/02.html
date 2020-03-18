@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script>
+        var openFile = function(event) {
+            var input = event.target;
+
+            var reader = new FileReader();
+            reader.readAsText(input.files[0]);
+            reader.onload = function() {
+                var text = reader.result;
+                var node = document.getElementById('output');
+                node.innerHTML = text;
+                console.log(reader.result);
+            };
+
+        };
+    </script>
+</head>
+
+<body>
+    <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <div id='output'>
+        ...
+    </div>
+</body>
+
+</html>

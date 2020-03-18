@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .blackground {
+            height: 400px;
+            width: 300px;
+            background-color: deepskyblue;
+            position: relative;
+        }
+        
+        .headImg {
+            position: absolute;
+            top: 5px;
+            left: 70px;
+            height: 200px;
+            width: 160px;
+            background-color: white;
+        }
+        
+        .headImg img {
+            height: 200px;
+            width: 160px;
+        }
+        
+        .set {
+            top: 210px;
+            position: absolute;
+            left: 120px;
+        }
+        
+        .historyImg {
+            position: absolute;
+            height: 80px;
+            width: 300px;
+            background-color: white;
+            top: 300px;
+            border: 1px solid red;
+        }
+        
+        .historyImg img {
+            height: 40px;
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blackground">
+        <div class="headImg">
+
+
+        </div>
+        <div class="set"><input type="file" name="" id="" onchange="'openFile(event)'"></div>
+        <div class="historyImg">
+            <table>
+                <tr>
+                    <th>头像1</th>
+                    <th>头像2</th>
+                    <th>头像3</th>
+                    <th>头像4</th>
+                </tr>
+                <tr>
+                    <td><img src="/Users/mzs/Documents/web/HTML5/day03/img/下载 (1).jpeg" alt="" srcset=""></td>
+                    <td><img src="/Users/mzs/Documents/web/HTML5/day03/img/下载.jpeg" alt="" srcset=""></td>
+                    <td><img src="/Users/mzs/Documents/web/HTML5/day03/img/下载 (2).jpeg" alt="" srcset=""></td>
+                    <td><img src="/Users/mzs/Documents/web/HTML5/day03/img/下载 (3).jpeg" alt="" srcset=""></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        var headImg = document.getElementsByClassName('headImg')[0]
+        headImg.onclick = function() {
+            alert(1)
+        }
+        headImg.ondragover = function(e) {
+            console.log(1)
+            e.preventDefault(); //阻止浏览器默认行为
+        }
+        headImg.ondrop = function(e) {
+            e.preventDefault(); //防止在窗口打开图片
+            //console.log(e.dataTransfer)//文件列表
+            var fr = new FileReader()
+            fr.readAsDataURL(e.dataTransfer.files[0])
+
+
+            //文件读取完毕后触发
+            fr.onload = function() {
+
+                var img = document.createElement('img')
+                img.src = fr.result
+
+                headImg.appendChild(img)
+            }
+        }
+    </script>
+</body>
+
+</html>

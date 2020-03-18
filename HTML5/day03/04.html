@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div draggable="true"></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0]
+        oDiv.ondragstart = function() {
+            console.log('开始拖动')
+        }
+        oDiv.ondrag = function() {
+            console.log('正在拖动')
+        }
+        oDiv.ondragend = function() {
+            console.log('结束拖动')
+        }
+    </script>
+</body>
+
+</html>

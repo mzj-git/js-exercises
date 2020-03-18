@@ -38,14 +38,28 @@
         <h2>To do list</h2>
         <input type="text"><button class="add">添加</button>
     </div>
-
+    <h6>代办事项</h6>
     <ul class="bottom">
-        <li>起床<button class="del">删除</button></li>
-        <li>洗漱<button class="del">删除</button></li>
-        <li>吃饭<button class="del">删除</button></li>
+        <li class="event">学习<button class="del">点击完成</button></li>
+
+    </ul>
+    <h6>已完成</h6>
+    <ul class="bottom">
+        <li class="end">写作业<button class="del">点击删除</button></li>
+
+        <li class="end"></li>
+        <li class="end"></li>
+    </ul>
+    <h6>全部列表</h6>
+    <ul class="bottom">
+        <li class="list">吃番茄<button class="del">已经删除</button></li>
+        <li class="list">学习<button class="del">点击完成</button></li>
+        <li class="list">写作业<button class="del">点击删除</button></li>
+
     </ul>
     <script>
         //del
+
         function del() {
             var del = document.getElementsByClassName('del')
 
@@ -59,6 +73,8 @@
                 }
 
             }
+
+
         }
         //add
 
@@ -81,7 +97,7 @@
                     break
                 } else if (i == lis.length - 1) {
                     var li = document.createElement('li')
-                    li.innerHTML = ipt.value + '<button   class="del"> 删除</button>'
+                    li.innerHTML = ipt.value + '<button   class="del"> 点击完成</button>'
                     ul.appendChild(li)
                     ipt.value = ''
                     del()
