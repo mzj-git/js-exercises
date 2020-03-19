@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="circle" width="400" height="300"></canvas>
+    <script type="text/javascript">
+        var color = ["#27255F", "#2F368F", "#3666B0"];
+
+        var data = [{
+            price: '100',
+            type: '吃饭'
+        }, {
+            price: '300',
+            type: '化妆品'
+        }, {
+            price: '1000',
+            type: '玩'
+        }]
+
+
+        function drawCircle() {
+            var canvas = document.getElementById("circle");
+            var ctx = canvas.getContext("2d");
+            var startPoint = 0;
+            for (var i = 0; i < data.length; i++) {
+
+
+
+                ctx.fillStyle = color[i];
+                ctx.beginPath();
+                ctx.moveTo(200, 150);
+                ctx.arc(200, 150, 150, startPoint, startPoint + Math.PI * 2 * (data[i].price / 1400), false);
+                ctx.fill();
+                startPoint += Math.PI * 2 * (data[i].price / 1400);
+            }
+        }
+        drawCircle();
+    </script>
+</body>
+
+</html>

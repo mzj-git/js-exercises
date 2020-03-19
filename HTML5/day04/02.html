@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="500px" height="400px" style="border: 1px solid red;"></canvas>
+    <script>
+        var canvas = document.getElementsByTagName('canvas')[0]
+        var ctx = canvas.getContext('2d')
+        ctx.beginPath()
+        ctx.moveTo(10, 10) //创建起点
+        ctx.lineTo(200, 50) //创建第一条
+        ctx.lineTo(200, 10) //创建第二条
+            //ctx.closePath()//关闭路径 创建了从（200，10）到（10，10）路径   
+        ctx.stroke()
+            //ctx.closePath()//描边之后再进行关闭
+    </script>
+</body>
+
+</html>

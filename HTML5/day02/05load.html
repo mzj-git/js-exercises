@@ -39,11 +39,8 @@
       存放的  时候  key:用户名    value:密码                                                        
         */
         register.onclick = function() {
-            var data = {
-                User: user.stringify(),
-                Pwd: pwd.stringify()
-            }
-            sessionStorage.setItem('data', JSON.stringify(data))
+
+            sessionStorage.setItem('user', JSON.stringify(use))
 
             if (user == " ") {
                 alert('不得为空')
