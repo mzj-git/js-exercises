@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(/Users/mzs/Documents/web/HTML5/ZUOYE/images/map_bg.png);
+        }
+        
+        p {
+            color: white;
+        }
+        
+        .showTime {
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+        
+        h4 {
+            margin-left: 140px;
+        }
+        
+        .left-top {
+            width: 500px;
+            height: 180px;
+            position: absolute;
+            left: 400px;
+            background: url(/Users/mzs/Documents/web/HTML5/ZUOYE/images/border_bg01.png);
+        }
+        
+        .left-center {
+            width: 100%;
+            height: 37%;
+            position: relative;
+        }
+        
+        h4 {
+            margin-left: 70px;
+            color: orangered;
+        }
+        
+        .dtu {
+            width: 177px;
+            height: 180px;
+            float: left;
+        }
+        
+        .plc {
+            width: 177px;
+            height: 180px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: white;">展板</h1>
+    <p class="showTime ">当前时间：2020年3月17-0时54分14秒</p>
+    <div class="left">
+        <div class="left-top">
+
+            <h4 style="font-size: 40px;">我的物联网平台数据</h4>
+
+        </div>
+    </div>
+    <div class="dtuplc">
+        <div class="dtu">
+            <div id="container" style="height: 100%;"></div>
+        </div>
+        <div class="plc">
+            <div id="container1" style="height: 100%"></div>
+        </div>
+    </div>
+    <div class="online">
+        <div class="title"><img src="/Users/mzs/Documents/web/HTML5/ZUOYE/images/icon01.png" />
+            <p>设备在线情况</p>
+        </div>
+        <div class="online_con" id="container2">
+
+        </div>
+    </div>
+    <div class="industry">
+        <div class="title"><img src="/Users/mzs/Documents/web/HTML5/ZUOYE/images/icon02.png" />
+            <p>接入工厂类型</p>
+        </div>
+        <div class="industry_con" id="container3"></div>
+    </div>
+
+    </div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000); //開始运行
+        function time() {
+            clearTimeout(t); //清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours(); //获取时
+            var m = dt.getMinutes(); //获取分
+            var s = dt.getSeconds(); //获取秒
+            document.querySelector(".showTime").innerHTML =
+                "当前时间：" +
+                y +
+                "年" +
+                mt +
+                "月" +
+                day +
+                "-" +
+                h +
+                "时" +
+                m +
+                "分" +
+                s +
+                "秒";
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+
+
+        }
+    </script>
+</body>
+
+</html>

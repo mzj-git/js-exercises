@@ -1,0 +1,45 @@
+//轮播图组件css
+
+.carousel {
+    padding: 10px 0;
+    font-size: 12px;  
+    background-color: #fff; 
+    .carousel-box{
+        .carousel-container {
+            ul {
+                width: 100%;
+                height: auto;
+            }
+            li.carousel-one {
+                display: block;
+                list-style: none;
+                width: 20%;
+                background-repeat: no-repeat;
+                background-size: 50px auto;
+                background-position: top center;
+                text-align: center;
+                padding-top: 50px;
+                color: #666;
+                font-size: 14px;
+            }
+
+        }       
+
+    }
+    .dot-box{
+        margin-top: 10px;
+        text-align: center;
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            background-color: #ccc;
+            margin-left: 10px;            
+            line-height: 20px;
+        }
+        .dot.selected {
+            background-color:  rgb(233, 32, 61);
+        }  
+    }
+}

@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "微软雅黑","Times New Roman",Georgia,Serif;
+    }
+}
+
+input {
+    outline:none;
+    border: none;
+}
+a {
+    text-decoration: none;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.clear-fix:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+.m_left_5 {
+    margin-left: 5px
+}
+.m_right_5 {
+    margin-right: 5px
+}
+.m_top_5 {
+    margin-top: 5px
+}
+.m_bottom_5 {
+    margin-bottom: 5px
+}
+.m_left_10 {
+    margin-left: 10px
+}
+.m_right_10 {
+    margin-right: 10px
+}
+.m_top_10 {
+    margin-top: 10px
+}
+.m_bottom_10 {
+    margin-bottom: 10px
+}
