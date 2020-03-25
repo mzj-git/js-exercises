@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            display: flex;
+            justify-content: space-around;
+            width: 1000px;
+            height: 600px;
+            background-color: grey;
+        }
+        
+        .item {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+
+
+    </div>
+    <!--弹性盒子模型(flex)
+```css
+    轴：主轴、侧轴
+    容器(flex)、项目(子元素)
+
+1、设置弹性盒子
+    容器
+        div{
+            display:flex;
+        }
+        属性：
+            1、(决定主轴方向：→,←,↓,↑)
+                flex-direction:row/row-reverse/column/column-reverse
+            2、(是否换行：不换、换、换-反转)    
+                flex-wrap:nowrap/wrap/wrap-reverse
+            3、(flex-direction和flex-wrap的简写，两个属性值)    
+                flex-flow:上面两种的结合
+            4、(项目在主轴上的对齐方式：左、右、中、两端、两端)   
+                justify-content:flex-start/flex-end/center/space-between/space-around
+            5、(项目在侧轴上的对齐方式：上、下、中、第一行文本的基线、高度为父元素的高度)   
+                align-items:flex-start/flex-end/center/baseline/stretch(默认)
+    项目：
+        p{
+            flex:1;
+        }
+        属性：
+            1、定义项目的排序顺序，数值越小，排序越靠前
+                order:1;
+            2、定义项目的放大比例
+                flex-grow
+            3、定义项目的缩放比例
+                flex-shrink
+            4、定义了在分配多余空间前，项目占据的主轴空间
+                flex-basis
+            5、设置弹性盒子的子元素如何分配空间
+                flex
+            6、定义了单个项目与其他项目不同的对齐方式
+            align-self:flex-start/flex-end/center
+```
+-->
+</body>
+
+</html>

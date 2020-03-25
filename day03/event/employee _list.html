@@ -30,20 +30,33 @@
             <th>住址</th>
             <td>操作</td>
         </tr>
+        <tr class="add">
 
+        </tr>
+        <tr class="add">
+
+        </tr>
 
     </table>
 
     <script>
         var btn = document.getElementsByTagName('button')[0]
-        var ipt = document.getElementsByTagName('input')[0]
+        var ipts = document.getElementsByTagName('input')
         var table = document.getElementsByTagName('table')[0]
+        var tr = document.getElementsByClassName('add')
+
         btn.onclick = function() {
-            var tr = document.createElement('tr')
+            alert(1)
+            for (var i = 0; i < ipts.length; i++) {
+                var td = document.createElement('td')
+                for (var j = 0; j < td.length; j++) {
 
-            tr.innerHTML = ipt.value
-            table.appendChild(tr)
+                    td[j].innerText = ipts[i].value
 
+                    tr.appendChild(td)
+                }
+
+            }
         }
     </script>
 </body>

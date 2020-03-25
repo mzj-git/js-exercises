@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 1000px;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+        
+        .goods1 {
+            margin-top: 10px;
+            height: 100px;
+            padding: 20px;
+            background: #eee;
+            position: relative;
+        }
+        
+        .title {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        li {
+            list-style: none;
+            margin-right: 80px;
+            font-size: 14px;
+        }
+        
+        .shuju {
+            margin-left: 516px;
+            position: absolute;
+            top: 20px;
+        }
+        
+        .goods1>div>button {
+            height: 20px;
+            width: 20px;
+        }
+        
+        .goods1>div {
+            position: absolute;
+            top: 20px;
+            right: 270px;
+        }
+        
+        .num1 {
+            height: 16px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .jianhao {
+            margin-left: 36px;
+        }
+        
+        .money2 {
+            right: 188px;
+            color: red;
+            width: 40px;
+            position: absolute;
+        }
+        
+        .shanchu {
+            position: absolute;
+            right: 66px;
+            height: 20px;
+            width: 50px !important;
+            margin-left: 50px;
+        }
+        
+        .foot {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .foot>p {
+            border: 1px solid red;
+            width: 120px;
+        }
+        
+        .total-box {
+            position: absolute;
+            top: 20px;
+            right: 240px;
+        }
+        
+        #price {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>全部商品</h1>
+        <hr>
+        <div class="title">
+            <input type="checkbox" class="all">全选
+            <ul class="fr">
+                <li class="fl">单价</li>
+                <li class="fl">数量</li>
+                <li class="fl">金额</li>
+                <li class="fl">操作</li>
+            </ul>
+        </div>
+        <div id="goodsBox">
+            <div class="goods1">
+                <input type="checkbox" class="single">
+                <p class="shuju">￥<span class="money1">20</span></p>
+                <div>
+                    <button class="jianhao">-</button>
+                    <input type="text" value="1" class="num1">
+                    <button class="jiahao">+</button>
+                </div>
+                <span class="money2">￥20</span>
+                <button class="shanchu">删除</button>
+            </div>
+            <div class="goods1">
+                <input type="checkbox" class="single">
+                <p class="shuju">￥<span class="money1">39</span></p>
+                <div>
+                    <button class="jianhao">-</button>
+                    <input type="text" value="1" class="num1">
+                    <button class="jiahao">+</button>
+                </div>
+                <span class="money2">￥39</span>
+                <button class="shanchu">删除</button>
+            </div>
+            <div class="goods1">
+                <input type="checkbox" class="single">
+                <p class="shuju">￥<span class="money1">188</span></p>
+                <div>
+                    <button class="jianhao">-</button>
+                    <input type="text" value="1" class="num1">
+                    <button class="jiahao">+</button>
+                </div>
+                <span class="money2">￥188</span>
+                <button class="shanchu">删除</button>
+            </div>
+        </div>
+        <div class="foot">
+            <input type="checkbox" class="all">全选 &nbsp;&nbsp;&nbsp;&nbsp;
+            <button id='quanbushanchu'>删除</button>
+            <p class="total-box">总数：<span id="total">0</span></p>
+            <p class="fr">合计：<span id="price">0</span></p>
+        </div>
+    </div>
+    <script>
+        /*
+                                                                                1. 点击加号，实现数值  和  总价的相加
+                                                                                    步骤一，给所有的加号  点击事件
+                                                                                    步骤二，获取对应的数值 + 1， 获取对应的单价     单价*数量 = 总价         
+                                                                                2. 点击减号， 实现数值  和  总价的相减  
+                                                                                    注意： 最多只能减到1
+                                                                                3. 检测 多选框的change， 选中以后， 总数+ 对应的数量     总价+ 对应的金额
+                                                                                4. 如果 多选框是选中状态的， 点击加号  减号的 时候，有对应的变化
+                                                                                    点击加号： 下方的总数 相应的 + 1    总价 + 单价
+                                                                            */
+
+        var box = document.getElementsByClassName('box')[0]
+        var add = document.getElementsByClassName('jiahao')
+        var minus = document.getElementsByClassName('jianhao')
+        var single = document.getElementsByClassName('single')
+        var all = document.getElementsByClassName('all')
+        var total = document.getElementById('total')
+        var price = document.getElementById('price')
+        var num1 = document.getElementsByClassName('num1')
+        var danjia = document.getElementsByClassName('money1')
+        var del = document.getElementsByClassName('shanchu')
+        var goods1 = document.getElementsByClassName('goods1')
+
+        var quanbushanchu = document.getElementById('quanbushanchu')
+        var goodsBox = document.getElementById('goodsBox')
+
+
+        for (var i = 0; i < add.length; i++) {
+            add[i].onclick = function() {
+                var single = this.parentElement.previousElementSibling.getElementsByTagName('span')[0].innerHTML
+                var ipt = this.parentElement.previousElementSibling.previousElementSibling
+                if (ipt.checked) {
+                    total.innerHTML++
+                        price.innerHTML = price.innerHTML - 0 + (single - 0)
+                }
+
+
+                this.previousElementSibling.value++
+                    this.parentElement.nextElementSibling.innerHTML = '￥' + single * this.previousElementSibling.value
+            }
+        }
+
+
+        for (var j = 0; j < minus.length; j++) {
+            minus[j].onclick = function() {
+                if (this.nextElementSibling.value == 1) {
+                    alert('不能再减啦')
+                    return
+                }
+                var ipt = this.parentElement.previousElementSibling.previousElementSibling
+                var single = this.parentElement.previousElementSibling.getElementsByTagName('span')[0].innerHTML
+
+                if (ipt.checked) {
+                    total.innerHTML--
+                        console.log(price.innerHTML - 0)
+                    price.innerHTML = price.innerHTML - 0 - (single - 0)
+                }
+                this.nextElementSibling.value--
+
+                    this.parentElement.nextElementSibling.getElementsByTagName('span')[0].innerHTML = '￥' + single * this.nextElementSibling.value
+
+            }
+        }
+
+
+        for (var i = 0; i < single.length; i++) {
+            single[i].onchange = function() {
+                // 多选框的选中的数量
+                var count = 0
+                    // num 是 数量
+                var num = this.parentElement.getElementsByClassName('num1')[0].value - 0
+                    // 单价
+                var danjia = this.parentElement.getElementsByClassName('money1')[0].innerHTML - 0
+                    // 金额
+                var jiage = num * danjia
+                if (this.checked) {
+                    // 当我有一个被勾选的时候   我就判断所有的多选框的选中状态
+                    // 每当有一个多选框被选中   数量+1
+                    for (var j = 0; j < single.length; j++) {
+                        if (single[j].checked) {
+                            count++
+                        }
+                    }
+                    // 如果 多选框选中的数量  == 多选框的数量 就让全选的框 被选中
+                    if (count == single.length) {
+                        for (var i = 0; i < all.length; i++) {
+                            all[i].checked = true
+                        }
+                    }
+                    total.innerHTML = total.innerHTML - 0 + num
+                    price.innerHTML = price.innerHTML - 0 + jiage
+                } else {
+                    // 有一个多选框 从选中变成 没选中的时候，就让全选框不勾选
+                    for (var i = 0; i < all.length; i++) {
+                        all[i].checked = false
+                    }
+                    total.innerHTML = total.innerHTML - 0 - num
+                    price.innerHTML = price.innerHTML - 0 - jiage
+                }
+            }
+        }
+
+        for (var i = 0; i < all.length; i++) {
+            all[i].onchange = function() {
+                if (this.checked) {
+                    // 如果全选框被选中了，就让所有的  多选框 都被选中  计算总价和总数
+                    total.innerHTML = 0
+                    price.innerHTML = 0
+
+                    for (var j = 0; j < single.length; j++) {
+                        single[j].checked = true
+
+                        // num1[j].value   每一个商品的数量
+                        // danjia[j].innerHTML 每一个商品的单价
+                        total.innerHTML = total.innerHTML - 0 + (num1[j].value - 0)
+                            // 单价   数量 
+                        price.innerHTML = price.innerHTML - 0 + ((danjia[j].innerHTML - 0) * num1[j].value)
+                    }
+                    // 有两个全选框 状态统一
+                    for (var j = 0; j < all.length; j++) {
+                        all[j].checked = true
+                    }
+
+                } else {
+                    // 当全选框 从 选中 变为 不选中的时候
+                    for (var j = 0; j < single.length; j++) {
+                        single[j].checked = false
+                    }
+                    total.innerHTML = 0
+                    price.innerHTML = 0
+                    for (var j = 0; j < all.length; j++) {
+                        all[j].checked = false
+                    }
+                }
+
+            }
+        }
+
+        for (var i = 0; i < del.length; i++) {
+            del[i].onclick = function() {
+
+                this.parentElement.parentElement.removeChild(this.parentElement)
+                if (this.parentElement.getElementsByClassName('single')[0].checked) {
+                    total.innerHTML = total.innerHTML - this.parentElement.getElementsByClassName('num1')[0].value
+                    price.innerHTML = price.innerHTML - this.parentElement.getElementsByClassName('num1')[0].value * this.parentElement.getElementsByClassName('money1')[0].innerHTML
+                }
+                if (document.getElementsByClassName('goods1').length == 0) {
+                    goodsBox.innerHTML = '<h2 style="margin: 20px">购物车还没有东西呢</h2>'
+                }
+            }
+        }
+        quanbushanchu.onclick = function() {
+            // for (var i=goods1.length-1;i>=0;i--) {
+            //     box.removeChild(goods1[i])
+            // }
+            goodsBox.innerHTML = '<h2 style="margin: 20px">购物车还没有东西呢</h2>'
+        }
+    </script>
+</body>
+
+</html>
