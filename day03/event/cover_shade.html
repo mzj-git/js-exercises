@@ -52,7 +52,7 @@
             shade.style.display = 'none'
         }
         shade.onclick = function(e) {
-            var e = e || window.event
+            var e = e || window.event//实现多种浏览器兼容
             if (e.target == shade) {
                 shade.style.display = 'none'
             }
