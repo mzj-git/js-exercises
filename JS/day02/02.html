@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 9;
+
+        function ss() {
+            a = 0;
+            return function(b) {
+                return b + (a++)
+            }
+        }
+        var f = ss();
+        var m = f(5);
+        console.log(m);
+        var n = ss()(5);
+        console.log(n);
+        var x = f(5);
+        console.log(x);
+        console.log(a);
+    </script>
+</body>
+
+</html>
