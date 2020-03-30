@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function newClosure() {
+            for (var i = 0; i < 5; i++) {
+                (function(e) {
+                    setTimeout(function() {
+                        console.log(e);
+                    })
+                })(i)
+            }
+        }
+        newClosure(); // 0 1 2 3 4
+
+
+
+
+        f = function() {
+            return true;
+        };
+        g = function() {
+            return false;
+        };
+        (function() {
+            if (g() && [] == ![]) {
+                f = function() {
+                    return false;
+                };
+                return console.log(f())
+            }
+
+            function g() {
+                return true;
+            };
+        })();
+        console.log(f());
+        console.log(g());
+
+
+
+
+
+        var num = 2;
+        var obj = {
+            num: 0,
+            fn: function() {
+                num = 1;
+                // this-->obj
+                (function(num) {
+                    // this --> window
+                    ++this.num;
+                    num++;
+                    console.log(num)
+                })(this.num)
+            }
+        }
+        obj.fn();
+        console.log(window.num, obj.num)
+    </script>
+</body>
+
+</html>
