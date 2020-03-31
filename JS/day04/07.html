@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        var txt = "";
+        var numbers = [45, 4, 9, 16, 25];
+        numbers.forEach(myFunction);
+        document.querySelector('p').innerHTML = txt;
+
+        function myFunction(value, index, array) {
+            txt = txt + value + "<br>";
+        }
+        /*用 forEach() 主要是为了更方便的代替 for 对数组进行遍历。
+
+        用 for 遍历数组的方法*/
+        var colors = ['red', 'blue', 'green'];
+
+        for (var i = 0; i < colors.length; i++) {
+            console.log(colors[i] + ' => ' + i + ' => ' + colors);
+        }
+        /*注意：
+
+        1、 forEach() 对于空数组是不会执行回调函数的。
+        2、 for可以用continue跳过循环中的一个迭代，forEach用continue会报错。
+        3、 forEach() 需要用 return 跳过循环中的一个迭代，跳过之后会执行下一个迭代。
+
+
+
+     */
+
+        var colors = ['red', 'blue', 'green'];
+
+        for (var i = 0; i < colors.length; i++) {
+            if (colors[i] == 'blue') {
+                continue;
+            }
+            console.log(colors[i]);
+        }
+
+        colors.forEach(function(item) {
+                if (item == 'blue') {
+                    return;
+                }
+
+                console.log(item);
+            })
+            /*注意：
+
+没有办法终止或跳出forEach循环，除非抛出一个异常。
+
+如果需要终止或者跳出循环，建议用some()或者every()。
+
+*/
+    </script>
+</body>
+
+</html>

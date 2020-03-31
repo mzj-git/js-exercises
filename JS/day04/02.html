@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'mzj',
+            sex: 'boy',
+            age: '13'
+        }
+        var obj1 = {
+            name: 'chai',
+            sex: 'girl',
+            age: '12',
+            say: function(a, b, c) {
+                console.log(this[a])
+                console.log(this[b])
+                console.log(this[c])
+            }
+        }
+        obj1.say('name', 'sex', 'age')
+        obj1.say.apply(obj, ['name', 'sex', 'age']) //A方法.apply(B, [1, 2, 3])
+        obj1.say.call(obj, 'name', 'sex', 'age') // A方法.call(B, 1, 2, 3)
+    </script>
+</body>
+
+</html>
