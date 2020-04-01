@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>播放器</title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            width: 350px;
+            height: 400px;
+            background-color: lightgray;
+            border-radius: 30px;
+            margin: 5px;
+        }
+        
+        #player {
+            height: 100px;
+            width: 350px;
+            background-color: red;
+            border-radius: 30px;
+        }
+        
+        #player audio {
+            margin: 20px 20px 0px 20px;
+        }
+        
+        #buttons {
+            width: 150px;
+            height: 20px;
+            margin-left: 80px;
+            display: inline-block;
+        }
+        
+        #btpre {
+            float: left;
+            width: 30px;
+            margin-right: 40px;
+        }
+        
+        #btpre i {
+            font-size: 18px;
+            color: orangered;
+        }
+        
+        #next {
+            width: 30px;
+            float: right;
+        }
+        
+        #next i {
+            font-size: 18px;
+            color: orangered;
+        }
+        
+        #list ul {
+            text-align: center;
+            list-style-type: none;
+        }
+        
+        #list li {
+            width: 350px;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        #list li:hover {
+            font-size: 20px;
+            color: orangered;
+        }
+        
+        .play {
+            background-color: red;
+            color: white;
+            font-size: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="player">
+
+            <audio src="../html5音乐播放器/music/认真的雪.mp3" controls autoplay id="aud"></audio>
+            <div id="buttons">
+                <button id="btpre"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+                <button id="next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+            </div>
+            <div id="list">
+                <ul>
+                    <li class="play">认真的雪</li>
+                    <li>初学者</li>
+                    <li>成都</li>
+                    <li>我们不一样</li>
+                    <li>我在十点零一分的时候想起了你</li>
+                    <li>童话镇</li>
+                    <li>平凡之路</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var btnPre = document.getElementById('btpre');
+            var btnNext = document.getElementById('next');
+            var list = document.getElementById('list');
+            var aud = document.getElementById('aud');
+            var li = list.getElementsByTagName('li');
+            var mymusic = ['../html5音乐播放器/music/认真的雪.mp3', '../html5音乐播放器/music/薛之谦 - 初学者.mp3', '../html5音乐播放器/music/赵雷 - 成都.mp3', '../html5音乐播放器/music/大壮 - 我们不一样.mp3', '../html5音乐播放器/music/花粥 - 我在十点差三分的时候开始想你.mp3', '../html5音乐播放器/music/陈一发儿 - 童话镇.mp3', '../html5音乐播放器/music/朴树 - 平凡之路.mp3']; //把地址存在一个数组里
+            //点击播放
+            for (var i = 0; i < li.length; i++) {
+                li[i].onclick = function() {
+                    for (var i = 0; i < li.length; i++) {
+                        if (this == li[i]) {
+                            li[i].className = 'play';
+                            aud.src = mymusic[i];
+                            aud.play();
+                        } else {
+                            li[i].className = '';
+
+                        }
+                    }
+                }
+            }
+            //获取正在播放的音乐
+            function getPlay() {
+                for (var i = 0; i < li.length; i++) {
+                    if (li[i].getAttribute('class') == 'play') {
+                        return i;
+
+                    }
+                }
+            }
+            //循环播放
+            aud.onended = function() {
+                    var a = getPlay();
+                    a++;
+                    if (a > li.length - 1) {
+                        a = 0;
+                    }
+                    for (var j = 0; j < li.length; j++) {
+                        li[j].className = '';
+                    }
+                    aud.src = mymusic[a];
+                    aud.play();
+                    li[a].className = 'play';
+                }
+                //下一首
+            btnNext.onclick = function() {
+                    var musicIndex = getPlay();
+                    if (musicIndex == li.length - 1) { //判断是否为最后一首，然后循环播放
+                        musicIndex = -1;
+                    }
+                    aud.src = mymusic[musicIndex + 1]; //切换到下一首
+                    aud.play();
+                    for (var j = 0; j < li.length; ++j) {
+                        li[j].className = '';
+                    }
+                    li[musicIndex + 1].className = 'play';
+                }
+                //上一首
+            btnPre.onclick = function() {
+                var musicIndex = getPlay();
+                if (musicIndex == 0) { //判断是否为第一首，然后循环播放
+                    musicIndex = li.length;
+                }
+                aud.src = mymusic[musicIndex - 1]; //切换到上一首
+                aud.play();
+                for (var j = 0; j < li.length; ++j) {
+                    li[j].className = '';
+                }
+                li[musicIndex - 1].className = 'play';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
