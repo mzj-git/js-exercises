@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+
+    <script>
+        var div = document.getElementById('div')
+
+        new Drag(div)
+
+
+        function Drag(box) {
+            this.box = box
+            this.X = 0
+            this.Y = 0
+            var that = this
+            this.box.onmousedown = function(e) {
+                var e = e || window.event;
+                that.mousedown(e)
+            }
+        }
+        Drag.prototype.mousedown = function(e) {
+            this.X = e.clientX - this.box.offsetLeft
+            this.Y = e.clientY - this.box.offsetTop
+            var that = this
+            document.documentElement.onmousemove = function(e) {
+                var e = e || window.event
+                that.mousemove(e)
+            }
+            document.documentElement.onmouseup = function(e) {
+                document.documentElement.onmousemove = null
+            }
+            Drag.prototype.mousemove = function(e) {
+                this.box.style.left = e.clientX - this.X + 'px'
+                this.box.style.top = e.clientY - this.Y + 'px'
+            }
+        }
+
+        function DragLimit(box) {
+            Drag.call(this, box);
+        }
+        //继承方法
+        for (var i in Drag.prototype) {
+            DragLimit.prototype[i] = Drag.prototype[i];
+        }
+        /**
+         * 覆写父类的鼠标移动方法，控制不能移出边界
+         */
+        DragLimit.prototype.mousemove = function(e) {
+            X = e.clientX - this.box.offsetLeft
+            Y = e.clientY - this.box.offsetTop
+            if (X < 0) {
+                X = 0;
+            } else if (X > document.documentElement.clientWidth - this.box.offsetWidth) {
+                X = document.documentElement.clientWidth - this.box.offsetWidth;
+            }
+            if (Y < 0) {
+                Y = 0;
+            } else if (Y > document.documentElement.clientHeight - this.box.offsetHeight) {
+                Y = document.documentElement.clientHeight - this.box.offsetHeight;
+            }
+            this.box.style.left = X + 'px';
+            this.box.style.top = Y + 'px';
+        }
+        new DragLimit(div)
+    </script>
+</body>
+
+</html>
