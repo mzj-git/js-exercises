@@ -18,6 +18,7 @@
 
 <body>
     <div></div>
+
     <script>
         var div = document.querySelector('div')
         new Drag(div)
@@ -32,7 +33,7 @@
                 that.mousedown(e)
             }
         }
-        Drag.prototype.mousedown = function(e) {
+        Drag.prototype.mousedown = function(e) { //鼠标按下时的坐标位置
             this.X = e.clientX - this.box.offsetLeft
             this.Y = e.clientY - this.box.offsetTop
             var that = this
@@ -43,7 +44,7 @@
             document.documentElement.onmouseup = function(e) {
                 document.documentElement.onmousemove = null
             }
-            Drag.prototype.mousemove = function(e) {
+            Drag.prototype.mousemove = function(e) { // 获取当前对象距离X/Y轴的距离
                 this.box.style.left = e.clientX - this.X + 'px'
                 this.box.style.top = e.clientY - this.Y + 'px'
             }
