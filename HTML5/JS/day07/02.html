@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const a = 5
+        // a = 6
+        //console.log(a) // TypeError: Assignment to constant variable.
+        //上面代码表明改变常量的值会报错。
+
+        let obj = {
+            first: 'hello',
+            last: 'world'
+        };
+        let {
+            first: f,
+            last: l
+        } = obj;
+        console.log(f, l)
+    </script>
+</body>
+
+</html>

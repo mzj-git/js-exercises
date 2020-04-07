@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>投票</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            margin: 20px auto;
+            height: 600px;
+            width: 1200px;
+            border: 4px solid #ccc;
+            border-radius: 10px;
+        }
+        
+        .register-login {
+            height: 296px;
+            width: 400px;
+            border-radius: 5px;
+            border: 2px solid red;
+            text-align: center;
+        }
+        
+        .register-login>button {
+            height: 30px;
+            width: 100px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .vote-box {
+            height: 596px;
+            width: 792px;
+            border: 2px solid red;
+        }
+        
+        .vote-box>div {
+            height: 200px;
+            width: 150px;
+            border: 1px solid blue;
+            float: left;
+            margin-top: 60px;
+            margin-left: 37px;
+            position: relative;
+        }
+        
+        .vote-box>div>button {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+        }
+        
+        .vote-box>div>p {
+            position: absolute;
+            bottom: 45px;
+            right: 0px;
+            width: 70px;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .clear {
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 注册框 -->
+        <div class="fl register-login">
+            <br>
+            <h1>注册</h1>
+            <br><br> 用户名：
+            <input type="text" id="register-user">
+            <br><br> 密&nbsp;&nbsp;&nbsp;&nbsp;码：
+            <input type="password" id="register-pwd">
+            <br><br><br><br>
+            <button id="register">注册</button>
+        </div>
+        <!-- 投票框框 -->
+        <div class="fr vote-box">
+            <div>
+                <h1>No.1</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.2</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.3</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.4</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.5</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.6</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.7</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+            <div>
+                <h1>No.8</h1>
+                <p>票数：<span>0</span></p>
+                <button class="btn">投 票</button>
+            </div>
+        </div>
+        <!-- 登录框 -->
+        <div class="fl register-login">
+            <br>
+            <h1>登录</h1>
+            <br><br> 用户名：
+            <input type="text" id="login-user">
+            <br><br> 密&nbsp;&nbsp;&nbsp;&nbsp;码：
+            <input type="password" id="login-pwd">
+            <br><br><br><br>
+            <button id="login">登录</button>
+        </div>
+    </div>
+    <script>
+        function getVoteNum() {
+            var arr = document.cookie.split(';')
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].trim()
+                arr[i] = arr[i].split('=')
+                if (arr[i][0] == 'voteNum') {
+                    arr[i][1] = eval(arr[i][1])
+                    return arr[i][1]
+                }
+            }
+        }
+
+        function getUser() {
+            var arr = document.cookie.split(';')
+            var newArr = []
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].trim()
+                arr[i] = arr[i].split('=')
+                if (arr[i][0] != 'voteNum') { //
+                    arr[i][1] = JSON.parse(arr[i][1]) //
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr
+        }
+        var voteNumBox = document.getElementsByClassName('vote-box')[0].getElementsByTagName('div')
+        for (var i = 0; i < voteNumBox.length; i++) {
+            var arr = getVoteNum()
+            voteNumBox[i].getElementsByTagName('span')[0].innerHTML = arr[i]
+        }
+        var registerUser = document.getElementById('register-user')
+        var registerPwd = document.getElementById('register-pwd')
+        var loginUser = document.getElementById('login-user')
+        var loginPwd = document.getElementById('login-pwd')
+
+
+        register.onclick = function() {
+            var obj = {
+                pwd: registerPwd.nodeValue,
+                state: false,
+                voteNum: 0
+
+            }
+            obj = JSON.stringify(obj)
+            document.cookie = registerUser.value + '=' + obj
+            alert('注册成功！')
+        }
+        var currentObj = ''
+
+        function panduan() {
+            var userArr = getUser()
+            for (var i = 0; i < userArr.length; i++) {
+                if (userArr[i][1].state) {
+                    currentObj = userArr[i][0]
+                    currentUser.innerHTML = currentObj
+                }
+            }
+        }
+        panduan()
+
+        login.onclick = function() {
+            var userArr = getUser()
+            for (var i = 0; i < userArr.length; i++) {
+                if (userArr[i][0] == loginUser.value && loginPwd.value == userArr[i][1].pwd) {
+                    if (currentObj && (currentObj != loginUser.value)) {
+                        for (var j = 0; j < userArr.length; j++) {
+                            if (userArr) {}
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

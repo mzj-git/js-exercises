@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!--构造函数
+        构造函数的名称首字母大写
+        构造函数也是定义生成了一个对象
+     为了区分普通函数和构造函数,构造函数的名称首字母大写-->
+
+<body>
+    <script>
+        function Animal(name, content) {
+            this.name = name
+            this.say = function() {
+                console.log(content)
+            }
+
+        }
+        var dog = new Animal('dog', '汪汪汪')
+        dog.say()
+        console.log(dog)
+
+        // 使用new关键字去调用
+        //js已有构造函数  new Object（） new Data（） new String() new Number()
+
+        // new 操作符做了什么:
+        // 1. 创建了一个新对象
+        // 2. 将构造函数的作用域赋给新对象(this指向了新对象)
+        //3. 执行构造函数的代码(给新对象添加属性,方法)
+        //4. 返回新对象
+
+
+        //var obj1 = new Animal('snail',18,'man')
+        //var obj2 = new Animal('snail1',18,'man')
+        //console.log(obj1 instanceof Animal)  // true可以判断来源
+        // console.log(obj1.say === obj2.say)  // false各有各的方法，占内存空间
+    </script>
+</body>
+
+</html>

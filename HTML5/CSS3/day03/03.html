@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box-one {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .num {
+            margin: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        
+        .box-two {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #two {
+            align-self: flex-end;
+        }
+        
+        .box-three {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .three {
+            align-self: center;
+        }
+        
+        #three {
+            align-self: flex-end;
+        }
+        
+        .box-four {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .box-four div {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .box-five {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .five {
+            align-self: center;
+        }
+        
+        .box-five div {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .box-six {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .box-six div {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-one">
+        <div class="num"></div>
+    </div>
+    <div class="box-two">
+        <div class="num"></div>
+        <div class="num" id="two"></div>
+    </div>
+    <div class="box-three">
+        <div class="num"></div>
+        <div class="num three"></div>
+        <div class="num" id="three"></div>
+    </div>
+    <div class="box-four">
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+
+    </div>
+    <div class="box-five">
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+        <div class="five">
+            <div class="num"></div>
+        </div>
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+    </div>
+    <div class="box-six">
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+        <div>
+            <div class="num"></div>
+            <div class="num"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

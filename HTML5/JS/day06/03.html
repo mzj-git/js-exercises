@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div')
+        new Drag(div)
+
+        function Drag(box) {
+            this.box = box
+            this.X = 0
+            this.Y = 0
+            var that = this
+            this.box.onmousedown = function(e) {
+                var e = e || window.event;
+                that.mousedown(e)
+            }
+        }
+        Drag.prototype.mousedown = function(e) { //鼠标按下时的坐标位置
+            this.X = e.clientX - this.box.offsetLeft
+            this.Y = e.clientY - this.box.offsetTop
+            var that = this
+            document.documentElement.onmousemove = function(e) {
+                var e = e || window.event
+                that.mousemove(e)
+            }
+            document.documentElement.onmouseup = function(e) {
+                document.documentElement.onmousemove = null
+            }
+            Drag.prototype.mousemove = function(e) { // 获取当前对象距离X/Y轴的距离
+                this.box.style.left = e.clientX - this.X + 'px'
+                this.box.style.top = e.clientY - this.Y + 'px'
+            }
+        }
+    </script>
+</body>
+
+</html>

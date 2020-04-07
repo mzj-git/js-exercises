@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.frontSize = document.documentElement.clientWidth / 10
+    </script>
+    <style>
+        body {
+            background-color: grey;
+        }
+        
+        .top-left {
+            background-color: blue;
+            width: 10rem;
+            height: 10rem;
+            float: left;
+        }
+        
+        .top-right {
+            width: 10rem;
+            height: 10rem;
+        }
+        
+        .one {
+            width: 5rem;
+            height: 5rem;
+            background-color: red;
+        }
+        
+        .two {
+            width: 5rem;
+            height: 5rem;
+            background-color: green;
+        }
+        
+        .three {
+            width: 5rem;
+            height: 5rem;
+            background-color: green;
+        }
+        
+        .five {
+            width: 5rem;
+            height: 5rem;
+            background-color: red;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        .middle-left {
+            width: 10rem;
+            height: 20rem;
+        }
+        
+        .bottom-right {
+            width: 10rem;
+            height: 5rem;
+        }
+        
+        .end {
+            background-color: yellow;
+            height: 5rem;
+            width: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-left"></div>
+    <div class="top-right fr">
+        <div class="one fl"></div>
+        <div class="two fr"></div>
+        <div class="three fl"></div>
+        <div class="five fr"></div>
+    </div>
+
+    <div class="middle-left fl">
+        <div class="one fl"></div>
+        <div class="two fr"></div>
+        <div class="top-left fl"></div>
+    </div>
+    <div class="middle-left fr">
+        <div class="top-left fl"></div>
+        <div class="one fl"></div>
+        <div class="two fr"></div>
+    </div>
+
+    <div class="bottom-right fl">
+        <div class="one fl"></div>
+        <div class="two fr"></div>
+        <div class="three fl"></div>
+        <div class="five fr"></div>
+    </div>
+    <div class="bottom-left fr">
+        <div class="one fl"></div>
+        <div class="two fl"></div>
+
+    </div>
+    <div class="end fr"></div>
+</body>
+
+</html>

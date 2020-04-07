@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>第一个</button>
+    <button>第二个</button>
+    <button>第三个</button>
+    <script>
+        var btns = document.querySelectorAll('button')
+        for (var i = 0; i < btns.length; i++) {
+            // btns[i].index = i
+            // btns[i].onclick = function(){
+            //   // 怎么写？
+            //   console.log(this.index)
+            //   console.log(i)
+            // }
+
+            (function(index) {
+
+                // 此时  形参为index  整个函数用的都是形参   函数内部  形参的值  是统一的  
+
+                // 此时 函数内部的index == i
+
+                btns[index].onclick = function() {
+                    console.log(index)
+                }
+            })(i)
+
+
+        }
+    </script>
+</body>
+
+</html>

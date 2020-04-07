@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var length = 0
+
+        function fn() {
+            console.log(this.length)
+        }
+        var obj = {
+            length: 5,
+            method: function(fn) {
+                fn();
+                arguments[0]()
+            }
+        }
+        obj.method(fn, 1)
+
+
+        function a() {
+            var i = 0;
+
+            function b() {
+                alert(++i);
+            }
+            return b
+        }
+        var c = a()
+        c()
+        c()
+    </script>
+</body>
+
+</html>

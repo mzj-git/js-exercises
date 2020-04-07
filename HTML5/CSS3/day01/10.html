@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 45px;
+            width: 170px;
+            border: 1px solid red;
+            /*
+            white-space: nowrap;/*超出部分不换行
+            overflow: hidden;
+            text-overflow: ellipsis;*/
+            /* 单行超出隐藏*/
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /*多行隐藏*/
+        }
+    </style>
+</head>
+
+<body>
+    <div>这是最好的时代，也是最差的时代，努力向前奔跑，是最好的时代，也是最差的时代，努力向前奔跑</div>
+</body>
+
+</html>

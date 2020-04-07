@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = 'mzj'
+        var obj = {
+            name: 'hhh',
+            say: function() {
+                var fn = () => {
+                    console.log(this.name)
+                }
+                fn()
+            }
+        }
+        obj.say() //hhh
+
+        //外面的this指向什么，箭头函数里面的this就指向什么
+        var name = 'mzj'
+        var obj = {
+            name: 'hhh',
+            say: () => {
+                console.log(this.name)
+            }
+        }
+
+
+
+        obj.say() //mzj
+    </script>
+</body>
+
+</html>

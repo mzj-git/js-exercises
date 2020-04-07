@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name, content) {
+            this.name = name
+        }
+        Animal.prototype.say = function(content) {
+            console.log(content)
+        }
+        var dog = new Animal('狗', '汪汪汪')
+        var cat = new Animal('猫', '喵喵喵')
+        console.log(dog)
+        dog.say('汪汪汪')
+        dog.say('喵喵喵')
+        console.log(dog.say == dog.say)
+    </script>
+</body>
+
+</html>

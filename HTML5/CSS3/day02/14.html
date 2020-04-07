@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 250px;
+            height: 300px;
+            position: relative;
+            background-color: khaki;
+            border: 1px solid grey;
+        }
+        
+        .box .box-one {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: white;
+            top: -50px;
+            right: -50px;
+            transform: rotate(45deg);
+        }
+        
+        .box .box-two {
+            width: 70px;
+            height: 70px;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            position: absolute;
+            left: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-one"></div>
+        <div class="box-two"></div>
+    </div>
+    <!--+ transform变形
+```css
+    div{
+        width:200px;
+        height:200px;
+        background:red;
+    1、移动    
+        transform:translate(x的值(必填),y的值);
+        /* x、y的值可以为像素和百分比，百分比相对自身宽度
+            应用：div的垂直居中对齐
+            translateX()、translateY()
+        */
+    2、旋转
+        transform-origin:0 0;
+        /* 指定旋转基点 */
+
+        transform:rotate(45deg);
+        /* 单位deg 以中心点为圆心顺时针旋转 
+            rotateX()、rotateY()、rotateZ()
+            rotate3D(1,0,0,45deg)
+        */       
+    3、缩放
+        transform:scale(倍数);
+        /* scale(x,y)
+            x、y的缩放倍数
+        */
+    4、斜切
+        transform:skew();
+        /* skew(x,y)x,y的角度
+            skewX()、skewY()
+        */
+    }
+```-->
+</body>
+
+</html>

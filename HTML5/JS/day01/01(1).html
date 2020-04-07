@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js高级-作用域</title>
+</head>
+<body>
+  <!-- 
+    es5   es6
+    es5: 
+      作用域：  
+        1. 函数作用域  （函数内部自成作用域）  函数的外面 访问不到函数内部的数据
+        2. 全局作用域    只要不在函数作用域中   就在全局作用域下面
+   -->
+
+  <div id="box"></div>
+  <script>
+    // function fn(){
+    //   var x = 1
+    // }
+    // fn()
+    // alert(x)   // ReferenceError: x is not defined
+
+
+    /*
+      函数是有作用域的  作用域外面 是 无法访问   作用域内部定义的变量
+    
+    */
+
+
+    // function x(){
+    //   var y = 1
+    // }
+    // console.log(x)
+    // console.log(y)
+
+
+    // function fn(){}
+    // box.onclick = function(){
+    //   // 在函数内部
+    // }
+
+    // var obj = {
+    //   say: function(){
+    //     // 函数的内部
+    //   }
+    // }
+
+    // setInterval(function(){
+    //   // 函数内部
+    // },2000)
+
+
+
+    // function say(){
+    //   console.log(1)
+    // }
+    // console.log(say())
+
+
+    // 立执行函数
+    // (function(){
+    //   console.log('匿名函数')
+    // })()
+
+    // 参数   形参和实参     形式参数   实际参数
+
+    // function fn(biaozhang){  // 定义函数的地方  形参
+    //   console.log(biaozhang)
+    // }  
+
+    // fn('5w')  // 调用  参数列表   实际意义   实参
+
+
+
+
+    /*
+
+      undefined 未定义
+
+      undefined 是数据类型中的一种  也是数据
+
+
+
+
+
+      1. 定义了一个变量  没有赋值   undefined
+          var x;
+          console.log(x)
+      2. 函数有参数，未接收到参数，使用参数的时候 参数为 undefined
+          function fn(num){
+            console.log(num)
+          }
+          fn()
+      3. 使用对象未定义的属性的时候，undefined
+          var obj = {
+            name: 'snail',
+            age: 14
+          }
+          console.log(obj.sex)
+          对象  obj  arr  date   function 
+          var arr = [1,2,3,4,5]
+          console.log(arr.a(1))  // ReferenceError: arr.a is not a function
+          console.log(arr.a)    // undefined
+          console.log(arr.join)  // function
+
+
+
+
+        [a] is not defined
+        当我们使用变量，但是变量并没有声明的情况下， 会报错
+    */
+
+
+
+    
+  
+
+
+
+    
+    
+
+    
+
+
+  </script>
+
+</body>
+</html>

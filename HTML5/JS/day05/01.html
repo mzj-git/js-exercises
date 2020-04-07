@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function animal(name, age, song) {
+            var obj = new Object();
+            obj.name = name
+            obj.age = age
+            obj.song = song
+            obj.sing = function() {
+                console.log(this.song)
+            }
+            return obj
+        }
+        var dog = animal('dog', '3', '汪汪')
+        dog.sing()
+        var cat = animal('cat', '2', '喵喵喵')
+        cat.sing()
+            /*工厂模式缺点1: 不能判断类型
+            a instanceof b   判断a是b的实例  如果是true  
+            console.log(dog instanceof animal)  // false
+        工厂模式缺点2: 同样的方法重复创建多次  浪费资源
+            console.log(dog.sing === duck.sing) //false
+*/
+    </script>
+</body>
+
+</html>
