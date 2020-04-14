@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//	第一种场景，内层变量可能会覆盖外层变量。
+	var tem="heyushuo";
+	function foo(){
+		//变量提升导致全局变量在这里打印为undefined
+		console.log(tem)
+		var tem="123"
+	}
+	foo()
+	
+	console.log(tem)
+//	第二种场景，用来计数的循环变量泄露为全局变量。
+var s = 'hellosasdasd';
+
+for (var i = 0; i < s.length; i++) {
+//console.log(s[i]);
+}
+
+console.log(i); // 5
+
+
+
+/**
+ * ES6 的块级作用域
+ */
+
+function foo1(){
+	let a=5
+	if(true){
+		let a=10;
+		console.log(a)
+	}
+	console.log(a)
+}
+
+foo1()
+
+//ES6 声明变量的六种方法
+//ES5 只有两种声明变量的方法：var命令和function命令。ES6 除了添加let和const命令，后面章节还会提到，另外两种声明变量的方法：import命令和class命令。
+</script>

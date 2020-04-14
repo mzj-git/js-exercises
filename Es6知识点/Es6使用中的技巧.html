@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//	使用 Array.from 方法，将类似数组的对象转为数组。
+
+	const foo = document.querySelectorAll('.foo');
+	const nodes = Array.from(foo);
+	
+//	使用扩展运算符（...）拷贝数组。
+
+// bad
+const len = items.length;
+const itemsCopy = [];
+let i;
+
+for (i = 0; i < len; i++) {
+  itemsCopy[i] = items[i];
+}
+
+// good
+const itemsCopy = [...items];
+
+
+
+
+//立即执行函数可以写成箭头函数的形式。
+
+(() => {
+  console.log('Welcome to the Internet.');
+})();
+
+
+// bad
+[1, 2, 3].map(function (x) {
+  return x * x;
+});
+
+// good
+[1, 2, 3].map((x) => {
+  return x * x;
+});
+
+// best
+[1, 2, 3].map(x => x * x);
+
+
+使用默认值语法设置函数参数的默认值。
+
+// bad
+function handleThings(opts) {
+  opts = opts || {};
+}
+
+// good
+function handleThings(opts = {}) {
+  // ...
+}
+
+//
+//Map 结构
+//注意区分 Object 和 Map，只有模拟现实世界的实体对象时，才使用 Object。如果只是需要key: value的数据结构，使用 Map 结构。因为 Map 有内建的遍历机制。
+
+let map = new Map(arr);
+
+for (let key of map.keys()) {
+  console.log(key);
+}
+
+for (let value of map.values()) {
+  console.log(value);
+}
+
+for (let item of map.entries()) {
+  console.log(item[0], item[1]);
+}
+
+// commonJS的写法
+var React = require('react');
+
+var Breadcrumbs = React.createClass({
+  render() {
+    return <nav />;
+  }
+});
+
+module.exports = Breadcrumbs;
+
+// ES6的写法
+import React from 'react';
+
+class Breadcrumbs extends React.Component {
+  render() {
+    return <nav />;
+  }
+};
+
+export default Breadcrumbs;
+//如果模块只有一个输出值，就使用export default，如果模块有多个输出值，就不使用export default，export default与普通的export不要同时使用
+
+
+
+//不要在模块输入中使用通配符。因为这样可以确保你的模块之中，有一个默认输出（export default）。
+
+// bad
+import * as myObject from './importModule';
+
+// good
+import myObject from './importModule';
+如果模块默认输出一个函数，函数名的首字母应该小写。
+
+function makeStyleGuide() {
+}
+
+export default makeStyleGuide;
+//如果模块默认输出一个对象，对象名的首字母应该大写。
+
+const StyleGuide = {
+  es6: {
+  }
+};
+
+export default StyleGuide;
+
+
+
+
+
+
+</script>
+
+

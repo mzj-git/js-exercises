@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	let s = Symbol();
+	
+	typeof s
+	console.log(s)
+	// "symbol"
+//	上面代码中，变量s就是一个独一无二的值。typeof运算符的结果，表明变量s是 Symbol 数据类型，而不是字符串之类的其他类型。
+	var s1=Symbol('foo');
+	s1
+	console.log(s1)
+	
+	// 没有参数的情况
+	let s1 = Symbol();
+	let s2 = Symbol();
+	
+	s1 === s2 // false
+	
+	// 有参数的情况
+	let s1 = Symbol('foo');
+	let s2 = Symbol('foo');
+	s1 === s2 // false
+</script>

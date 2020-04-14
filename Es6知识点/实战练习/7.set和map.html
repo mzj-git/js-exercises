@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/**
+	 * 
+	 * ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+	 * 
+	 */
+	// 例一
+	const set = new Set([1, 2, 3, 4, 4]);
+	console.log(set)
+	console.log([...set])
+	// [1, 2, 3, 4]
+	
+	// 例二
+	const items = new Set([1, 2, 3, 4, 5, 5, 5, 5]);
+	/**
+	 * 
+	 * 去除数组的重复成员
+	 * 
+	 */
+	[...new Set(array)]
+	const items = new Set([1, 2, 3, 4, 5]);
+	const array = Array.from(items);
+	
+	/**
+	 * 
+	 * 直接用for...of循环遍历 Set
+	 * 
+	 */
+	let set = new Set(['red', 'green', 'blue']);
+
+	for (let x of set) {
+	  console.log(x);
+	}
+	// red
+	// green
+	// blue
+	
+	/**
+	 * 
+	 * Set 结构的键名就是键值（两者是同一个值），因此第一个参数与第二个参数的值永远都是一样的。
+	 * 
+	 */
+</script>

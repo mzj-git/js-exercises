@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+	 * 有了Promise对象，就可以将异步操作以同步操作的流程表达出来，
+		避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
+	*/
+	/**
+	 * 
+	 * resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+	 * reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+	 * 
+	 * 
+	 */
+//	const promise=new Promise(function(resolve,reject){
+//		if(/*异步操作成功*/){
+//			resolve(value)
+//		}else{
+//			reject(Error)
+//		}
+//	})
+//	promise.then(function(value){
+//		//成功
+//	},function(error){
+//		//失败
+//	})
+	/**
+	 * 
+	 * 简单的例子
+	 * 
+	 */
+	function timeout(ms){
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve("我异步调用成功了")
+			},ms)
+		})
+	}
+	
+	timeout(1000).then((value)=>{
+		console.log(value)
+	})
+	/**
+	 * 
+	 * 
+	 * 面是一个用Promise对象实现的 Ajax 操作的例子。
+	 * 
+	 * 
+	 */
+	const getJSON=function(url){
+		return new Promise(function(){
+			
+			const handler = function() {
+				      if (this.readyState !== 4) {
+				        return;
+				      }
+				      if (this.status === 200) {
+				      	//带有参数
+				        resolve(this.response);
+				      } else {
+				      	//带有参数
+				        reject(new Error(this.statusText));
+				      }
+		    	};
+		    	
+		    const client = new XMLHttpRequest();
+		    client.open("GET", url);
+		    client.onreadystatechange = handler;
+		    client.responseType = "json";
+		    client.setRequestHeader("Accept", "application/json");
+		    client.send();
+		});
+	}
+	
+	getJSON("/posts.json").then(function(json) {
+		  console.log('Contents: ' + json);
+		}, function(error) {
+		  console.error('出错了', error);
+		});
+		
+		/**
+		 * 
+		 * 
+		 * Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
+		 * 
+		 * 
+		 */
+
+		getJSON('/posts.json').then(function(posts) {
+		  // ...
+		}).catch(function(error) {
+		  // 处理 getJSON 和 前一个回调函数运行时发生的错误
+		  console.log('发生错误！', error);
+		});
+		
+		/**
+		 * 
+		 * 
+		 * 最好这样使用promis的回调  then和catch
+		 * 
+		 * 
+		 */
+		// good
+		promise
+		  .then(function(data) { //cb
+		    // success
+		  })
+		  .catch(function(err) {
+		    // error
+		  });
+</script>

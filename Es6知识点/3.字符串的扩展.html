@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串的扩展</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*var a="abcded";
+	console.log(a.charAt())
+	var b="吉"
+	console.log(b.length)
+	console.log(b.charAt(0))
+	for(let value of "he"){
+		console.log(value)
+	}
+	var c="sdfasdggasfd";
+	console.log(c.indexOf(1))  //如果不存在是-1
+	console.log(c.indexOf("a"))  //存在返回在字符串中的位置
+	ES6又提供了三种新方法。
+
+	includes()：返回布尔值，表示是否找到了参数字符串。
+	startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+	endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+	这三个方法都支持第二个参数，表示开始搜索的位置。
+	let s = 'Hello world!';
+
+	s.startsWith('Hello') // true
+	s.endsWith('!') // true
+	s.includes('o') // true
+	let s = 'Hello world!';
+	
+	s.startsWith('world', 6) // true
+	s.endsWith('Hello', 5) // true
+	s.includes('Hello', 6) // false
+	上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+
+	（6).repeat() 如果是负值就会报错
+	repeat方法返回一个新字符串，表示将原字符串重复n次。
+	
+	'x'.repeat(3) // "xxx"
+	'hello'.repeat(2) // "hellohello"
+	'na'.repeat(0) // ""
+	参数如果是小数，会被取整。
+	
+	'na'.repeat(2.9) // "nana"
+	'na'.repeat(-0.9) // ""
+	参数NaN等同于0。
+	
+	'na'.repeat(NaN) // ""
+	如果repeat的参数是字符串，则会先转换成数字。
+	
+	'na'.repeat('na') // ""
+	'na'.repeat('3') // "nanana"
+	
+	
+	
+	
+	//模板字符串
+	$('#result').append(
+	  'There are <b>' + basket.count + '</b> ' +
+	  'items in your basket, ' +
+	  '<em>' + basket.onSale +
+	  '</em> are on sale!'
+	);
+	
+	$("#result").append(`
+		There are <b>${basket.count}</b> items
+	   in your basket, <em>${basket.onSale}</em>
+	  are on sale!
+	`)*/
+	
+	var a="何玉硕";
+	var c="好的很"
+	console.log(`哈哈哈哈${a}哈哈哈${c}`)
+	let x = 1;
+	let y = 2;
+	
+	`${x} + ${y} = ${x + y}`
+	// "1 + 2 = 3"
+	
+	`${x} + ${y * 2} = ${x + y * 2}`
+	// "1 + 4 = 5"
+	
+	let obj = {x: 1, y: 2};
+	`${obj.x + obj.y}`
+	// "3"	
+	
+	function fn() {
+	  return "Hello World";
+	}
+	
+	`foo ${fn()} bar`
+	// foo Hello World bar
+	
+	
+//	标签模板
+	alert`123`
+	// 等同于
+	alert(123)
+</script>

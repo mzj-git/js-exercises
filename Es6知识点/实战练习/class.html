@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/**
+	 * 
+	 * 
+	 * 构造函数的prototype属性，在 ES6 的“类”上面继续存在。事实上，类的所有方法都定义在类的prototype属性上面。
+	 * 
+	 * 
+	 */
+	//定义类
+	class Point {
+	  constructor(x, y) {
+	    this.x = x;
+	    this.y = y;
+	  }
+	
+	  toString() {
+	    return '(' + this.x + ', ' + this.y + ')';
+	  }
+	}
+	/**
+	 * 
+	 * 形象的例子
+	 * 
+	 */
+	class Point {
+		  constructor() {
+		    // ...
+		  }
+		
+		  toString() {
+		    // ...
+		  }
+		
+		  toValue() {
+		    // ...
+		  }
+	}
+		
+		// 等同于
+		
+	Point.prototype = {
+	  constructor() {},
+	  toString() {},
+	  toValue() {},
+	};
+	
+	/**
+	 * 
+	 * 
+	 * 不可枚举的用一般的循环时循环不到的
+	 * 类的内部所有定义的方法，都是不可枚举的（non-enumerable）。
+	 * 类的内部所有定义的方法，都是不可枚举的（non-enumerable）。
+	 * 类的内部所有定义的方法，都是不可枚举的（non-enumerable）。
+	 * 
+	 * 
+	 * 
+	 */
+	class Point {
+	  constructor(x, y) {
+	    // ...
+	  }
+	
+	  toString() {
+	    // ...
+	  }
+	}
+	
+	Object.keys(Point.prototype)
+	// []
+	Object.getOwnPropertyNames(Point.prototype)
+	// ["constructor","toString"]
+	
+	/**
+	 * 这种方式也是可以的
+	 */
+	let methodName = 'getArea';
+
+	class Square {
+	  constructor(length) {
+	    // ...
+	  }
+	
+	  [methodName]() {
+	    // ...
+	  }
+	}
+	
+	/**
+	 * 
+	 * 
+	 * 最好的理解那些属性在实例对象上
+	 * 类的所有实例共享一个原型对象。
+	 * 类的所有实例共享一个原型对象。
+	 * 类的所有实例共享一个原型对象。
+	 * 类的所有实例共享一个原型对象。
+	 * 类的所有实例共享一个原型对象。
+	 * 类的所有实例共享一个原型对象。
+	 * 
+	 * 
+	 */
+	//定义类
+class Point {
+
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  toString() {
+    return '(' + this.x + ', ' + this.y + ')';
+  }
+
+}
+
+var point = new Point(2, 3);
+
+point.toString() // (2, 3)
+
+point.hasOwnProperty('x') // true
+point.hasOwnProperty('y') // true
+point.hasOwnProperty('toString') // false
+point.__proto__.hasOwnProperty('toString') // true
+/*上面代码中，x和y都是实例对象point自身的属性（因为定义在this变量上），所以hasOwnProperty方法返回true，
+而toString是原型对象的属性（因为定义在Point类上），所以hasOwnProperty方法返回false。这些都与 ES5 的行为保持一致。*/
+</script>
